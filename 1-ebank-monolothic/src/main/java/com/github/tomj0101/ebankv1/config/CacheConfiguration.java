@@ -50,7 +50,6 @@ public class CacheConfiguration {
             createCache(cm, com.github.tomj0101.ebankv1.domain.User.class.getName() + ".authorities");
             createCache(cm, com.github.tomj0101.ebankv1.domain.PersistentToken.class.getName());
             createCache(cm, com.github.tomj0101.ebankv1.domain.User.class.getName() + ".persistentTokens");
-            // jhipster-needle-ehcache-add-entry
         };
     }
 

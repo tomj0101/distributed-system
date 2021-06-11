@@ -3,8 +3,6 @@
 #
 # This configuration overrides the application.yml file.
 #
-# More information on profiles: https://www.jhipster.tech/profiles/
-# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 # ===================================================================
@@ -34,8 +32,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/ebankv1
-    username: ebankv1
-    password:
+    username: usr_ebank
+    password: ebank1234
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -80,9 +78,8 @@ server:
     min-response-size: 1024
 
 # ===================================================================
-# JHipster specific properties
+# specific properties
 #
-# Full reference is available at: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 jhipster:
@@ -97,7 +94,7 @@ jhipster:
     remember-me:
       # security key (this key should be unique for your application, and kept secret)
       key: f920f594d7be1e821717e7b763c0cf0007f936da2be9459f65667511f5d2bdbc18668051c08aeb24846ab6b77b3e44666a1a
-  mail: # specific JHipster mail property, for standard properties see MailProperties
+  mail: # specific mail property, for standard properties see MailProperties
     base-url: http://my-server-url-to-change # Modify according to your server's URL
   logging:
     use-json-format: false # By default, logs are not in Json format
@@ -109,10 +106,9 @@ jhipster:
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
-# to have type-safe configuration, like in the JHipsterProperties above
+# to have type-safe configuration, like in the Properties above
 #
 # More documentation is available at:
-# https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 # application:

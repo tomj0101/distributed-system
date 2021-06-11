@@ -1,0 +1,27 @@
+{
+  "ebankv1App": {
+    "recentTransaction": {
+      "home": {
+        "title": "Recent Transactions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Recent Transaction",
+        "createOrEditLabel": "Recent Transaction",
+        "notFound": "No Recent Transactions found"
+      },
+      "created": "A new Recent Transaction is created with identifier {{ param }}",
+      "updated": "A Recent Transaction is updated with identifier {{ param }}",
+      "deleted": "A Recent Transaction is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Recent Transaction {{ id }}?"
+      },
+      "detail": {
+        "title": "Recent Transaction"
+      },
+      "id": "ID",
+      "description": "Description",
+      "amount": "Amount",
+      "status": "Status",
+      "tCreated": "Created"
+    }
+  }
+}

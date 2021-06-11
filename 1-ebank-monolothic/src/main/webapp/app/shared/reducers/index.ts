@@ -13,6 +13,18 @@ import password, { PasswordState } from 'app/modules/account/password/password.r
 import settings, { SettingsState } from 'app/modules/account/settings/settings.reducer';
 import passwordReset, { PasswordResetState } from 'app/modules/account/password-reset/password-reset.reducer';
 import sessions, { SessionsState } from 'app/modules/account/sessions/sessions.reducer';
+// prettier-ignore
+import recentTransaction, {
+  RecentTransactionState
+} from 'app/entities/recent-transaction/recent-transaction.reducer';
+// prettier-ignore
+import customerSupport, {
+  CustomerSupportState
+} from 'app/entities/customer-support/customer-support.reducer';
+// prettier-ignore
+import issueSystem, {
+  IssueSystemState
+} from 'app/entities/issue-system/issue-system.reducer';
 /* needle-add-reducer-import - will add reducer here */
 
 export interface IRootState {
@@ -27,6 +39,9 @@ export interface IRootState {
   readonly password: PasswordState;
   readonly settings: SettingsState;
   readonly sessions: SessionsState;
+  readonly recentTransaction: RecentTransactionState;
+  readonly customerSupport: CustomerSupportState;
+  readonly issueSystem: IssueSystemState;
   /* needle-add-reducer-type - will add reducer type here */
   readonly loadingBar: any;
 }
@@ -43,6 +58,9 @@ const rootReducer = combineReducers<IRootState>({
   password,
   settings,
   sessions,
+  recentTransaction,
+  customerSupport,
+  issueSystem,
   /* needle-add-reducer-combine - will add reducer here */
   loadingBar,
 });

@@ -1,0 +1,28 @@
+{
+  "ebankv1App": {
+    "customerSupport": {
+      "home": {
+        "title": "Customer Supports",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Customer Support",
+        "createOrEditLabel": "Crear o editar Customer Support",
+        "notFound": "Ningún Customer Supports encontrado"
+      },
+      "created": "Un nuevo Customer Support ha sido creado con el identificador {{ param }}",
+      "updated": "Un Customer Support ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Customer Support ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Customer Support {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer Support"
+      },
+      "id": "ID",
+      "description": "Description",
+      "cCreated": "C Created",
+      "severity": "Severity",
+      "status": "Status",
+      "issueSystem": "Issue System"
+    }
+  }
+}

@@ -41,6 +41,8 @@
     "packageFolder": "com/github/tomj0101/ebankv1",
     "rememberMeKey": "f920f594d7be1e821717e7b763c0cf0007f936da2be9459f65667511f5d2bdbc18668051c08aeb24846ab6b77b3e44666a1a",
     "clientPackageManager": "npm",
-    "languages": ["en", "es"]
+    "languages": ["en", "es"],
+    "entities": ["RecentTransaction", "CustomerSupport", "IssueSystem"],
+    "lastLiquibaseTimestamp": 1623435598000
   }
 }

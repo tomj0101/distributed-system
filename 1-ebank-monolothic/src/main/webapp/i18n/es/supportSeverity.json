@@ -1,0 +1,10 @@
+{
+  "ebankv1App": {
+    "SupportSeverity": {
+      "null": "",
+      "LOW": "LOW",
+      "MEDIUM": "MEDIUM",
+      "HIGH": "HIGH"
+    }
+  }
+}

@@ -18,7 +18,7 @@ export const Home = (props: IHomeProp) => {
       </Col>
       <Col md="9">
         <h2>
-          <Translate contentKey="home.title">Welcome, eBank!</Translate>
+          <Translate contentKey="home.title">Welcome, eBankv1!</Translate>
         </h2>
         <p className="lead">
           <Translate contentKey="home.subtitle">This is your homepage</Translate>
@@ -55,8 +55,10 @@ export const Home = (props: IHomeProp) => {
           </div>
         )}
         <p>
-          <Translate contentKey="home.question">If you have any question on:</Translate>
+          <Translate contentKey="home.question">If you have any question:</Translate>
         </p>
+
+
       </Col>
     </Row>
   );

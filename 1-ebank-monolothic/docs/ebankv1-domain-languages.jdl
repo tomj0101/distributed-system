@@ -18,8 +18,7 @@ entity RecentTransaction {
 	description String required minlength(3) maxlength(50),
 	amount Long required,
     status TransactionStatus required,
-	tCreated Instant required,
-	reviewed Boolean
+	tCreated Instant required
 }
 
  /**
@@ -57,7 +56,7 @@ entity CustomerSupport {
 }
 
  /**
- * CustomerSupport IssueSystem.
+ * IssueSystem entity.
  * @author Tom.
  * Changes:
  * Created on 2021-06-11 00:36  - by Tom

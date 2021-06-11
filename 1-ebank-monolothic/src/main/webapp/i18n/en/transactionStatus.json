@@ -1,0 +1,11 @@
+{
+  "ebankv1App": {
+    "TransactionStatus": {
+      "null": "",
+      "PENDING": "PENDING",
+      "COMPLETED": "COMPLETED",
+      "CANCELED": "CANCELED",
+      "DISPUTED": "DISPUTED"
+    }
+  }
+}

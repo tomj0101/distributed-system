@@ -1,13 +1,16 @@
 {
   "global": {
-    "title": "Banco Electronico",
+    "title": "eBankv1",
     "browsehappy": "Está usando un navegador <strong>no actualizado</strong>. Por favor, <a href=\"http://browsehappy.com/?locale=es\">actualice su navegador</a> para mejorar su experiencia.",
     "menu": {
       "home": "Inicio",
-      "jhipster-needle-menu-add-element": "add additional menu entries here (do not translate!)",
+      "jhipster-needle-menu-add-element": "will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Servicios",
-        "jhipster-needle-menu-add-entry": "add additional entities here (do not translate!)"
+        "recentTransaction": "Recent Transaction",
+        "customerSupport": "Customer Support",
+        "issueSystem": "Issue System",
+        "jhipster-needle-menu-add-entry": "will add additional entities here (do not translate!)"
       },
       "account": {
         "main": "Cuenta",
@@ -136,5 +139,5 @@
       "not.image": "Se esperaba que el fichero fuera una imagen pero se encontro \"{{ fileType }}\""
     }
   },
-  "footer": "Copyrights © 2020. Todos los derechos reservados por XYZ | Este codigo es libre para ser usado"
+  "footer": "Copyrights © 2021. Todos los derechos reservados por XYZ | Este codigo es libre para ser usado"
 }

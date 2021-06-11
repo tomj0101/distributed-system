@@ -105,9 +105,6 @@ export const CustomerSupport = (props: ICustomerSupportProps) => {
                 <th className="hand" onClick={sort('status')}>
                   <Translate contentKey="ebankv1App.customerSupport.status">Status</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th>
-                  <Translate contentKey="ebankv1App.customerSupport.issueSystem">Issue System</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th />
               </tr>
             </thead>
@@ -128,13 +125,6 @@ export const CustomerSupport = (props: ICustomerSupportProps) => {
                   </td>
                   <td>
                     <Translate contentKey={`ebankv1App.SupportStatus.${customerSupport.status}`} />
-                  </td>
-                  <td>
-                    {customerSupport.issueSystem ? (
-                      <Link to={`issue-system/${customerSupport.issueSystem.title}`}>{customerSupport.issueSystem.title}</Link>
-                    ) : (
-                      ''
-                    )}
                   </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

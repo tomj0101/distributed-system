@@ -10,7 +10,7 @@ This Distributed system repository is the quick Onramp for people that want to u
 [Container Orchestration-Kubernetes ](https://kubernetes.io/)
 
 # Clarification
-distributed-system ≠ high-performance computing(HPC): In some text books talk about this to terms like the same, but in this case let talk about two like complete differents topics.
+distributed-system ≠ high-performance computing(HPC): In some text books talk about this two terms like the same, but in this case let talk about like complete differents topics.
 
 - distributed-system: Containers oriented, CI-CD Pipeline, quickly scale, support intensive load. we will used software like Docker, Kubernetes, Jenkins, Git, ELK and programming languages like Java11+, Python, Nodejs14+, ReactJS17+.
 

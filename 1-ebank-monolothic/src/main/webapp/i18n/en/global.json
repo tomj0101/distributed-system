@@ -7,6 +7,9 @@
       "jhipster-needle-menu-add-element": "will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Services",
+        "recentTransaction": "Recent Transaction",
+        "customerSupport": "Customer Support",
+        "issueSystem": "Issue System",
         "jhipster-needle-menu-add-entry": "will add additional entities here (do not translate!)"
       },
       "account": {

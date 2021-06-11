@@ -1,0 +1,26 @@
+{
+  "ebankv1App": {
+    "issueSystem": {
+      "home": {
+        "title": "Issue Systems",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Issue System",
+        "createOrEditLabel": "Create or edit a Issue System",
+        "notFound": "No Issue Systems found"
+      },
+      "created": "A new Issue System is created with identifier {{ param }}",
+      "updated": "A Issue System is updated with identifier {{ param }}",
+      "deleted": "A Issue System is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Issue System {{ id }}?"
+      },
+      "detail": {
+        "title": "Issue System"
+      },
+      "id": "ID",
+      "title": "Title",
+      "description": "Description",
+      "iCreated": "Created"
+    }
+  }
+}

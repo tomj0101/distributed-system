@@ -6,7 +6,7 @@
       "home": "Inicio",
       "jhipster-needle-menu-add-element": "add additional menu entries here (do not translate!)",
       "entities": {
-        "main": "Entidades",
+        "main": "Servicios",
         "jhipster-needle-menu-add-entry": "add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,10 @@
+{
+  "ebankv1App": {
+    "SupportStatus": {
+      "null": "",
+      "OPEN": "OPEN",
+      "INPROGRESS": "INPROGRESS",
+      "CLOSE": "CLOSE"
+    }
+  }
+}

@@ -3,6 +3,6 @@ This Distributed system repository is the quick Onramp for people that want to u
 
 # Monolithic application
 ![Monolithic Logo](/docs/Monolithic.png)
-[monolithic-patterns](https://microservices.io/patterns/monolithic.html){:target="_blank"}
+[monolithic-patterns](https://microservices.io/patterns/monolithic.html)
 # Microservices & Distributed System
 

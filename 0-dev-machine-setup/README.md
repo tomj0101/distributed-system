@@ -1,61 +1,130 @@
 # Dev Machine setup (GNU/Linux Ubuntu 20.04)
 The setup of this script is for run in debian version of Linux, GNU/Linux Ubuntu 20.04, if you are macOS User or Windows User you can found the equivalence software in .dmg or .exe with a wizard options.
 
-###  Included: tools, script, library, Framework, Programming Language 
+###  Included: User software, tools, script, library, Framework, Programming Language 
 ```
-
 #check OS Update
 sudo apt update -y:
 apt list --upgradable
 
-# desktop environment LXDE / LXQt for old laptop
-sudo apt install lxqt -y
-
-# cloc is Count, or compute differences of, lines of source code and comments.
-sudo apt install cloc -y
-# cloc .
-
-#VIM editor
-sudo apt install vim -y
+===========================================================
+=============== USER & POWER USER SOFTWARE ===============  
 
 #Chromium web browser
 sudo snap install chromium
-
-# Pomodoro for Work Session, Training, Conferences, Practice my Algo skill (pomotroid 0.12.0 from Dan Ryan (techalchemy))
-sudo snap install pomotroid
-
-# Audio Recording and Audio edition software
-sudo apt install audacity
-
-
-# Some Chrome issue can happens after update Ubuntu is display a really bad quality fonts / big bold fonts, if this happen just do this.
-sudo apt install gnome-tweak-tool -y
-# open the tweaks application > click on Fonts > Antialiasing > choose Standard (grayscale)
-
-#spotify
-sudo snap install spotify
-
-#LaTex in Linux Ubuntu
-sudo apt-get install texlive-full -y  #compiler
-sudo apt install texmaker -y #editor
 
 #Google Chrome web browser
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
 
+# Some Chrome issue can happens after update Ubuntu is display a really bad quality fonts / big bold fonts, if this happen just do this.
+sudo apt install gnome-tweak-tool -y
+# open the tweaks application > click on Fonts > Antialiasing > choose Standard (grayscale)
+
 # Improve chrome web browser performace (Chrome Running Slow)
 # chrome://settings/?search=hardware 
 # Disabling "Use hardware acceleration when available" in chrome://settings/?search=hardware fixed the problem.
 
-# Terminal with SuperPowers: # this one is good But I'm trying to used the default terminal
+# Microsoft Team: chat and video conferences
+sudo snap install teams-for-linux
+
+# zoom video conferences
+wget https://zoom.us/client/latest/zoom_amd64.deb
+sudo apt install ./zoom_amd64.deb -y
+sudo apt --fix-broken install -y #if the first try don' work
+sudo apt install ./zoom_amd64.deb -y
+rm zoom_amd64.deb
+
+#skype video conferences
+sudo snap install skype --classic
+
+# slack video conferences
+sudo snap install slack --classic
+
+#IDE & Text Editor (lubuntu 18.10 come with gcc and make include)
+#apt install nano -y 
+
+#libreoffice (is included)
+#sudo apt install libreoffice -y (lubuntu 18.10 come with libreoffice include)
+
+#spotify
+sudo snap install spotify
+
+#Video Player
+sudo apt install vlc -y 
+
+#Utils
+#download youtube video
+sudo snap install ktube-media-downloader
+
+#financial application
+sudo snap install gnucash-jz
+
+# know the weather
+sudo snap install wethr
+
+# send desktop notification
+#notify-send <title> <`command`>
+notify-send "Weather" "`wethr`"
+
+#create some shortcut for eclipse and other app
+# lxshortcut -o ~/Desktop/eclipse-jee
+#  lxshortcut -o ~/Desktop/eclipse-java
+#  lxshortcut -o ~/Desktop/eclipse-cpp
+#  lxshortcut -o ~/Desktop/postman
+#  lxshortcut -o ~/Desktop/dbeaver-ce
+
+# desktop environment LXDE / LXQt for old laptop or just get better performace removing GUI effects.
+sudo apt install lxqt -y
+
+==============================================================================
+=============== WEB & GRAPHIC DESIGNER + VIDEO EDITORS + AUDIO ==============
+#Images Manipulator(like photoshop), Vector Images(like Adobe Illustrator, Freehand, CoreDraw), 3D tool like 3D max or Maya
+sudo apt install gimp -y && sudo apt install inkscape -y && sudo apt install blender -y
+
+# Video Editor (Like iMovie for apple)
+sudo snap install shotcut --classic
+
+#font manager for design
+sudo apt update && sudo apt -y install font-manager 
+
+# Audio Recording and Audio edition software
+sudo apt install audacity
+
+# Install video and AudiLib utils (command line different video format conversion)
+sudo apt install ffmpeg -y &&
+sudo apt install lame -y
+
+==============================================================================
+=============== DEV TOOLS ===============  
+#postman
+sudo snap install postman
+#$ postman
+
+#sudo apt install wget -y  (lubuntu 18.10 come with wget include)
+
+# htop
+sudo apt install htop -y
+
+#utility and tools
+sudo apt install curl -y 
+
+# Terminal with SuperPowers: 
 sudo apt install terminator -y
 
 #Copy text to clipboard
 sudo apt install xclip -y
 
+# Pomodoro for Work Session, Training, Conferences, Practice my Algo skill (pomotroid 0.12.0 from Dan Ryan (techalchemy))
+sudo snap install pomotroid
+
 # Create Diagrams
 sudo snap install drawio
+
+# cloc is Count, or compute differences of, lines of source code and comments.
+sudo apt install cloc -y
+# cloc .
 
 #Exec Parallel command
 sudo apt install parallel -y
@@ -63,11 +132,16 @@ sudo apt install parallel -y
 #Parsing JSON on CLI 
 sudo snap install jq
 
+
+#Install ab - Command Load Test tool with Apache util
+sudo apt install apache2-utils -y
+
 # if you want to use ```ifconfig``` and not ```ip add show```
 sudo apt install net-tools
 
-#ngrok provides public URL for you locally running a server
+#ngrok provides public URL for you locally running a server (Good for quick customers demo.)
 sudo snap install ngrok
+# docs: https://ngrok.com/docs
 
 # Enabling SSH on Ubuntu (if you thinking to access remote to this computer)
 sudo apt update
@@ -75,7 +149,7 @@ sudo apt install openssh-server -y
 sudo systemctl status ssh
 sudo ufw allow ssh
 
-#config git
+#Install Code version control git
 ###------------------------------------------
 sudo apt install git -y
 git config --global color.ui true
@@ -100,8 +174,20 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 
 #pass in Github key setup
 https://github.com/settings/keys
-###------------------------------------------
 
+# Database tools:
+sudo snap install dbeaver-ce # GUI tools for Oracle, SQL Server, MySQL and Other DB
+sudo snap install mysql-workbench-community # Official Admin GUI for MySQL
+sudo snap install robomongo # GUI for MongoDB
+sudo snap install redis-desktop-manager # GUI for Redis 
+sudo snap install cass  # GUI for cassandra
+sudo apt install pgadmin3 -y # Desktop GUI for PostgreSQL
+pip3 install pgadmin4 # Web GUI for PostgreSQL, is a little bit slower.
+
+==============================================================================
+=============== PROGRAMMING LANGUAGES =============== 
+
+=============== C & C++ =============== 
 # C/C++ Development
 sudo apt install build-essential -y
 # (1 hour 30 min for compiled the library)
@@ -114,70 +200,15 @@ sudo apt-get install libcpprest-dev -y
 # Qt: can't find -lGL error.... solution: libgl1-mesa-dev
 sudo apt install libgl1-mesa-dev -y
 
-
-#Java 11 (default is 11 on 2021.01.01)
-sudo apt install default-jre -y && sudo apt install default-jdk -y
-
-#set different java version
-: '
-$ update-java-alternatives --lis
-   java-1.14.0-openjdk-amd64      1411       /usr/lib/jvm/java-1.14.0-openjdk-amd64
-   java-1.8.0-openjdk-amd64       1081       /usr/lib/jvm/java-1.8.0-openjdk-amd64
-$ sudo update-java-alternatives --set /usr/lib/jvm/java-1.8.0-openjdk-amd64
-   update-alternatives: error: no alternatives for jaotc
-   update-alternatives: error: no alternatives for jdeprscan
-   update-alternatives: error: no alternatives for jhsdb
-   update-alternatives: error: no alternatives for jimage
-   update-alternatives: error: no alternatives for jlink
-   update-alternatives: error: no alternatives for jmod
-   update-alternatives: error: no alternatives for jshell
-   update-alternatives: error: no alternatives for mozilla-javaplugin.so
-   update-java-alternatives: plugin alternative does not exist: /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/IcedTeaPlugin.so
-'
-
-#maven
-sudo apt install maven -y
-
-#eclipse
-sudo snap install eclipse --classic
-
-#pycharm-community
-sudo snap install pycharm-community --classic
-
-#IntelliJ IDEA Community (Java IDE)
-sudo snap install intellij-idea-community --classic
+#VIM editor
+sudo apt install vim -y
 
 # Geany is a lightweight GUI text editor, including basic IDE features. 
 sudo apt install geany -y
 
-#Install ab - Load Test tool with Apache util
-sudo apt install apache2-utils -y
-
-# htop
-sudo apt install htop -y
-
-# Install video and AudiLib utils
-sudo apt install ffmpeg -y &&
-sudo apt install lame -y
-
-
-
-# Video Editor (Like iMovie for apple)
-sudo snap install shotcut --classic
-
-#utility and tools
-sudo apt install curl -y 
-
-#font manager for design
-sudo apt update && sudo apt -y install font-manager 
-
-#Images Manipulator(like photoshop), Vector Images(like Adobe Illustrator, Freehand, CoreDraw), 3D tool like 3D max or Maya
-sudo apt install gimp -y && sudo apt install inkscape -y && sudo apt install blender -y
-
-# Developer tools *******
-# note: GCC is install by default in the system!
-# 2)  install development tools (like Make,C, C++ other lib)
-# To install development tools, run:
+#QT OpenSources: Free C++/QT IDE
+https://www.qt.io/download-open-source
+# Fix QT Editor error
 :'
 Install mesa fix error working with QT
 Error:
@@ -191,17 +222,57 @@ Error:
 Invalid use of incomplete type ‘class QDebug’
 '
 
+=============== JAVA =============== 
+#Java 11 (default is 11 on 2021.01.01)
+sudo apt install default-jre -y && sudo apt install default-jdk -y
+
+#set different java version
+: '
+$ update-java-alternatives --lis
+   java-1.14.0-openjdk-amd64      1411       /usr/lib/jvm/java-1.14.0-openjdk-amd64
+   java-1.8.0-openjdk-amd64       1081       /usr/lib/jvm/java-1.8.0-openjdk-amd64
+$ sudo update-java-alternatives --set /usr/lib/jvm/java-1.8.0-openjdk-amd64
+'
+
+#maven
+sudo apt install maven -y
+
+#IntelliJ IDEA Community (Java IDE)
+sudo snap install intellij-idea-community --classic
+
+#eclipse
+sudo snap install eclipse --classic
+
 #some opensource project use this platform 
 #like hotspot http://openjdk.java.net/groups/hotspot/
 sudo apt install mercurial -y
 
-# Enabling SSH
-sudo apt install openssh-server
-sudo systemctl status ssh
-sudo ufw allow ssh
+#Create a new directory and go into it mkdir myApp && cd myApp
+#Run JHipster and follow instructions on screen jhipster
+#Model your entities with JDL Studio and download the resulting jhipster-jdl.jh file
+#Generate your entities with jhipster import-jdl jhipster-jdl.jh
+#Jhipster - Java Framework
+#Install JHipster :
+sudo npm install -g generator-jhipster
 
+=============== PYTHON =============== 
+sudo apt install python3 -y
+sudo apt install python3-pip -y
+# python3 -m http.server 8080
 
-# ==================== Full-stack Devloper ====================
+#Run Python faster using PyPy: PyPy is a just-in-time compiler while CPython is an interpreter, On average, PyPy is 4.2 times faster than CPython
+sudo apt install pypy -y  # for Python 2.7
+sudo apt install pypy3 -y # for Python 3
+# pypy3 test.py
+
+#IDE pycharm-community
+sudo snap install pycharm-community --classic
+
+=============== FULLSTACK: NodeJS Backend & ReactJS Frontend, Web & Mobile =============== 
+
+#IDE: Microsoft Visual Studio Code (Make sure install the extension for your languages)
+sudo snap install code --classic
+
 # nodejs
 sudo apt install nodejs -y && \
 sudo apt install npm -y
@@ -214,20 +285,9 @@ sudo npm install -g nodemon
 sudo npm install -g typescript
 # tsc -w
 
-
 # Reactjs & Firebase
 # https://www.npmjs.com/package/generator-react-firebase
 sudo npm install -g yo generator-react-firebase npx
-
-#Jhipster - Java Framework
-#Install JHipster :
-sudo npm install -g generator-jhipster
-
-#Create a new directory and go into it mkdir myApp && cd myApp
-#Run JHipster and follow instructions on screen jhipster
-#Model your entities with JDL Studio and download the resulting jhipster-jdl.jh file
-#Generate your entities with jhipster import-jdl jhipster-jdl.jh
-
 
 # React Native with Expo.io
 sudo npm install expo-cli --global
@@ -235,6 +295,16 @@ sudo npm install expo-cli --global
 #cd my-new-project
 #expo start
 
+#google webdesigner
+#https://www.google.com/webdesigner/
+
+# CLI for firebase developer:
+curl -sL https://firebase.tools | bash
+# $ firebase login
+# $ firebase projects:list
+
+#GCP (Google Cloud platoform)
+https://cloud.google.com/sdk/docs/install#deb
 
 #Google Fluter Mobile develoment with Dart
 sudo snap install flutter --classic
@@ -242,15 +312,10 @@ sudo snap install flutter --classic
 #Install Android Studio
 sudo snap install android-studio --classic
 
-#Erlang Lang
-sudo snap install erlang --classic
-
-
 #php 7.4 Lang (just in case you want to use, HHVM  virtual machine designed for executing programs written in Hack. )
 sudo apt install php-cli -y
-
-#Scala Lang
-sudo apt install scala -y
+# this is part of the facebook world
+#doc: https://hhvm.com/
 
 #Swift Lang
 sudo apt install swift -y
@@ -258,94 +323,18 @@ sudo apt install swift -y
 #Kotlin Lang
 sudo snap install kotlin --classic
 
-#Haskell Lang
-sudo apt install haskell-platform -y
-# $ ghci
-
-
-# fix any broken packages after install node and npm: very important
-#########################################################################
-sudo apt --fix-broken install
-
-# Docker
-# instruction: https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1
-sudo apt-get update && \
-sudo mkdir "/home/developer/.docker" && \
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates -y \
-    curl
-    software-properties-common
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-sudo apt-get update -y && \
-sudo apt install docker.io -y
-
-# add permission to your user
-sudo groupadd docker && \
-sudo usermod -aG docker developer  && \
-sudo usermod -aG docker developer  && \
-sudo chown "$developer":"developer" /home/developer/.docker -R  && \
-sudo chmod g+rwx "/home/developer/.docker" -R  && \
-sudo chown developer:developer /home/developer/.docker -R  && \
-sudo chmod g+rwx "/home/developer/.docker" -R
-
-#start
-sudo systemctl enable docker &&
-sudo chkconfig docker on &&
-sudo systemctl restart docker
-
-#by default comes start
-#sudo systemctl stop docker
-#sudo systemctl disable docker
-
-
-# How-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
-# Create the docker group.
-sudo groupadd docker
-# Add your user to the docker group.
-sudo usermod -aG docker ${USER}
-# You would need to loog out and log back in so that your group membership is re-evaluated or type the following command:
-su -s ${USER}
-# Verify that you can run docker commands without sudo.
-docker run hello-world
-
-# fix
-sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-sudo chmod g+rwx "$HOME/.docker" -R
-sudo chmod 666 /var/run/docker.sock
-sudo systemctl restart docker
-docker ps #should return good info.
-
-
-#docker compose
-sudo apt install docker-compose -y
-
-# VirtualBox
-# Open-source hosted hypervisor for x86 virtualization
-sudo apt install virtualbox -y
-
-# Vagrant 
-# building and maintaining portable virtual software development environments
-sudo apt install vagrant -y
-
-# Infrastructure as code for AWS, GCP and Azure
-#sudo snap install terraform
-snap install --candidate terraform
-
-# ansible: IT Automation
-sudo apt install ansible -y
-
+=============== R for Maths and Statistical analysis =============== 
+#LaTex in Linux Ubuntu 
+# (You can create from scientists papers to your resume, 
+# also when you need to create PDF output in RStudio you will need this compiler)
+sudo apt-get install texlive-full -y  #compiler
+sudo apt install texmaker -y #editor
 
 # Install R-lang
 sudo apt install r-base -y
 # $ R
 
-# Install RStudio (check the last version before instsll)
+# Install RStudio (check the last version before install, also install Latex before, also the RStudio version change a lot, make sure to install the last version)
 
 wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1093-amd64.deb
 sudo dpkg -i rstudio-1.3.1093-amd64.deb
@@ -353,30 +342,11 @@ sudo apt --fix-broken install -y #the first try don' work
 sudo dpkg -i rstudio-1.3.1093-amd64.deb
 rm rstudio-1.3.1093-amd64.deb
 
-
-# Communitation tools
-# zoom
-wget https://zoom.us/client/latest/zoom_amd64.deb
-sudo apt install ./zoom_amd64.deb -y
-sudo apt --fix-broken install -y #the first try don' work
-sudo apt install ./zoom_amd64.deb -y
-rm zoom_amd64.deb
-
-sudo snap install skype --classic && \
-sudo snap install slack --classic && \
-sudo snap install teams-for-linux
-
-#Microsoft Visual Studio Code
-sudo snap install code --classic
-
-#postman
-sudo snap install postman
-#$ postman
-
+=============== RUBY & RUBY ON RAILS  =============== 
+# Note: If you will work with Ruby on Rails in a greenfield project, check the last version for use the best features
 
 # Ruby with snap
 # sudo snap install ruby --classic
-
 
 #RubyOnRails (Manual) 
 #############
@@ -446,33 +416,205 @@ rake db:create
 rails server
 '
 
+=============== OTHERS LANGUAGES =============== 
 
-# Python
-sudo apt install python python3 -y && \
-sudo apt install python3-pip -y && \
-sudo apt install pypy -y && \
-pip3 install Flask
-python3 -m http.server 8080
+#Scala Lang (Install JVM, JDK before Scala)
+sudo apt install scala -y
 
-
-
-# Install Golang
+# Install Golang (Look like very good alternative for system programming, faster than Python and easy than C++)
 sudo apt install golang -y && \
 sudo apt install gccgo -y
-
-# rest api
+# Dev Rest api in Golang
 https://www.codementor.io/codehakase/building-a-restful-api-with-golang-a6yivzqdo
 
+#Erlang Lang: WhatsApp secret power is running on Erlang VMs.
+sudo snap install erlang --classic
 
-# Database tools:
-sudo snap install dbeaver-ce && \
-sudo snap install mysql-workbench-community && \
-sudo snap install robomongo && \
-sudo snap install redis-desktop-manager && \  
-sudo snap install cass && \ # GUI for cassandra
-pip3 install pgadmin4
+#Haskell Lang
+sudo apt install haskell-platform -y
+# $ ghci
+
+==============================================================================
+=============== DATABASE SYSTEMS (SQL, NOSQL, CACHE, QUEUE) =============== 
+# Note: if your role is just dev, probably a Docker file to run your local database will be enough, but if your Role is DBA or System Admin this database, then yes this section is or you.
+
+#postgresql
+
+#https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
+apt install postgresql -y
+#/usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
+systemctl disable postgresql
+systemctl status postgresql
+systemctl restart postgresql
+#GUI tool: install pgadmin3
+#apt install pgadmin3 
+sudo su postgres
+
+#mysql
+
+sudo apt update
+sudo apt install mysql-server
+sudo mysql_secure_installation
+root
+ServerPasswd123J$1  #just sample password
+service mysql restart
+service mysql status
+sudo mysql -u root
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ServerPasswd123J$1'; 
+
+#sql lite
 
 
+#sql server
+
+apt install curl -y
+sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+sudo apt-get update -y
+sudo apt install libcurl3 -y
+sudo apt-get install -y mssql-server
+sudo apt-get install mssql-tools unixodbc-dev
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+source ~/.bashrc
+sudo /opt/mssql/bin/mssql-conf setup
+sudo systemctl status mssql-server
+#systemctl disable mssql-server
+
+#sqlcmd -S localhost -U SA -P 'Tecno12345'
+#curl -XGET http://localhost:9200/_stats
+#curl -XGET http://localhost:9200/_cat/indices?v
+
+#error: sqlcmd -S localhost -U SA -P 'Tecno12345'
+#    Sqlcmd: Error: Microsoft ODBC Driver 17 for SQL Server : Login failed for user 'sa'. Reason: Server is in script upgrade mode. Only administrator can connect at this time..
+#Soluction:
+#sudo /opt/mssql/bin/mssql-conf set sqlagent.enabled true
+#sudo systemctl restart mssql-server
+
+# MongoDB (NoSQL, Document Database) 
+
+mkdir /data &&
+mkdir /data/db &&
+chmod 777 -R /data
+apt install mongodb -y
+#by default comes start
+#sudo systemctl stop mongodb
+#sudo systemctl start mongodb
+systemctl disable mongodb
+systemctl status mongodb
+#GUI: download last version of MongoDB Compass
+
+#cassandra (Wide-Column Database)
+
+echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+sudo apt-get update	
+apt install cassandra
+#service cassandra start
+#service cassandra stop
+systemctl disable cassandra
+systemctl status cassandra
+#cqlsh localhost
+
+# Redis (Cache, in-memory Key-Value Store)
+sudo apt install redis-server -y
+sudo systemctl restart redis.service
+sudo systemctl status redis
+#redis install docs: https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-20-04
+
+
+# test redis 
+redis-cli
+ping
+set test "It's working!"
+get test
+exit
+
+# Apache Kafka (Queue)
+# kafka install doc: https://kafka.apache.org/quickstart
+
+# Elasticsearch (full-text Search Engine)
+# Install ELK Stack: Elasticsearch + Kibana + Logstash.
+# Elasticsarch is a Searching database, Kibana is a GUI to see the data in Elastisearch and Logstash is uses like ETL tools.
+#https://www.howtoforge.com/tutorial/ubuntu-elastic-stack/
+
+==============================================================================
+=============== DEVOPS + CLOUD ADMIN + LINUX SYSADMIN =============== 
+
+# fix any broken packages after install node and npm: very important
+sudo apt --fix-broken install
+
+# Docker
+# instruction: https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1
+sudo apt-get update && \
+sudo mkdir "/home/developer/.docker" && \
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates -y \
+    curl
+    software-properties-common
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update -y && \
+sudo apt install docker.io -y
+
+# add permission to your user
+sudo groupadd docker && \
+sudo usermod -aG docker developer  && \
+sudo usermod -aG docker developer  && \
+sudo chown "$developer":"developer" /home/developer/.docker -R  && \
+sudo chmod g+rwx "/home/developer/.docker" -R  && \
+sudo chown developer:developer /home/developer/.docker -R  && \
+sudo chmod g+rwx "/home/developer/.docker" -R
+
+#start
+sudo systemctl enable docker &&
+sudo chkconfig docker on &&
+sudo systemctl restart docker
+
+#by default comes start
+#sudo systemctl stop docker
+#sudo systemctl disable docker
+
+# How-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
+# Create the docker group.
+sudo groupadd docker
+# Add your user to the docker group.
+sudo usermod -aG docker ${USER}
+# You would need to loog out and log back in so that your group membership is re-evaluated or type the following command:
+su -s ${USER}
+# Verify that you can run docker commands without sudo.
+docker run hello-world
+
+# fix
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "$HOME/.docker" -R
+sudo chmod 666 /var/run/docker.sock
+sudo systemctl restart docker
+docker ps #should return good info.
+
+
+#docker compose
+sudo apt install docker-compose -y
+
+# VirtualBox
+# Open-source hosted hypervisor for x86 virtualization
+sudo apt install virtualbox -y
+
+# Vagrant 
+# building and maintaining portable virtual software development environments
+sudo apt install vagrant -y
+
+# Infrastructure as code for AWS, GCP and Azure
+#sudo snap install terraform
+snap install --candidate terraform
+
+# ansible: IT Automation
+sudo apt install ansible -y
 
 # CLI for Cloud provider:
 #firebase
@@ -489,47 +631,16 @@ sudo apt install awscli -y
 #Azure (Microsoft Cloud)
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-
-#Utils
-#download youtube video
-sudo snap install ktube-media-downloader
-
-#financial
-sudo snap install gnucash-jz
-
-# know the weather
-sudo snap install wethr
-
-# send desktop notification
-#notify-send <title> <`command`>
-notify-send "Weather" "`wethr`"
-
-# remove the weather city for privacity
-echo wethr | grep -Po '(?<=Linden, \.).*'
-
 # Security
 sudo snap install nmap
 
-
-
-#restart and check the memory, is important don't have any service running, remember is your developer laptop, NOT A PROD SERVER.
-reboot
-
-
-
-
-#######################################################################################################
-
-#Kubernetes
-##########################  DevOps, make sure you have a least 16GB of RAM, better if you have 32GB of RAM and SSD
+#Kubernetes: Open-source container-orchestration system for automating computer application deployment, scaling, and management. 
 #https://kubernetes.io/docs/tasks/tools/install-kubectl/
 sudo snap install kubectl --classic
 kubectl version
 
-
 #helm: The package manager for Kubernetes
 sudo snap install helm --classic
-
 
 #https://minikube.sigs.k8s.io/docs/start/
 minikube status
@@ -567,148 +678,12 @@ $ kubectl expose rc app1 --port=8080 --type=LoadBalancer
 $ kubectl describe service app1
 $ kubectl delete app1
 
-
 #rolling update
 $ kubectl rolling-update app1 --images=tomj0101/app1:v3 --update-period=5s
 sudo s
 
-######################DON'T INSTALL THIS PACKAGES, JUST FOR REFERENCES################################
-
-
-#version control (lubuntu 18.10 come with git include)
-#apt-get install git -y
-
-
-#utility and tools
-#sudo apt install wget -y  (lubuntu 18.10 come with wget include)
-
-# Install video and AudiLib
-#sudo apt install vlc -y (lubuntu 18.10 come with wget include)
-
-#Run the other DB and tools like services using docker.
-
-#C/C++ (lubuntu 18.10 come with gcc and make include)
-#apt-get install build-essential -y
-
-# mongo db
-mkdir /data &&
-mkdir /data/db &&
-chmod 777 -R /data
-apt install mongodb -y
-#by default comes start
-#sudo systemctl stop mongodb
-#sudo systemctl start mongodb
-systemctl disable mongodb
-systemctl status mongodb
-#GUI: download last version of MongoDB Compass
-
-#postgresql
-#https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
-apt install postgresql -y
-#/usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
-systemctl disable postgresql
-systemctl status postgresql
-systemctl restart postgresql
-#GUI tool: install pgadmin3
-#apt install pgadmin3 
-sudo su postgres
-
-#mysql
-sudo apt update
-sudo apt install mysql-server
-sudo mysql_secure_installation
-root
-ServerPasswd123J$1  #just sample password
-service mysql restart
-service mysql status
-sudo mysql -u root
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ServerPasswd123J$1'; 
-
-#cassandra
-echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
-curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
-sudo apt-get update	
-apt install cassandra
-#service cassandra start
-#service cassandra stop
-systemctl disable cassandra
-systemctl status cassandra
-#cqlsh localhost
-
-#sql server
-
-apt install curl -y
-sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-sudo curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
-sudo apt-get update -y
-sudo apt install libcurl3 -y
-sudo apt-get install -y mssql-server
-sudo apt-get install mssql-tools unixodbc-dev
-echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
-echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
-source ~/.bashrc
-sudo /opt/mssql/bin/mssql-conf setup
-sudo systemctl status mssql-server
-#systemctl disable mssql-server
-
-#sqlcmd -S localhost -U SA -P 'Tecno12345'
-#curl -XGET http://localhost:9200/_stats
-#curl -XGET http://localhost:9200/_cat/indices?v
-
-#error: sqlcmd -S localhost -U SA -P 'Tecno12345'
-#    Sqlcmd: Error: Microsoft ODBC Driver 17 for SQL Server : Login failed for user 'sa'. Reason: Server is in script upgrade mode. Only administrator can connect at this time..
-#Soluction:
-#sudo /opt/mssql/bin/mssql-conf set sqlagent.enabled true
-#sudo systemctl restart mssql-server
-
-
-
-
-#IDE & Text Editor (lubuntu 18.10 come with gcc and make include)
-#apt install nano -y 
-
-
-#libreoffice (is included)
-#sudo apt install libreoffice -y (lubuntu 18.10 come with libreoffice include)
-
-
-
-#after install Eclipse, install the Java, C++ pluggin 
-#and install Visual Studio Code pluggin like react, angular, node, javascript, java, python, ruby, go, c/c++, linux, git
-#google webdesigner
-#https://www.google.com/webdesigner/
-
-#create some shortcut for eclipse and other app
-# lxshortcut -o ~/Desktop/eclipse-jee
-#  lxshortcut -o ~/Desktop/eclipse-java
-#  lxshortcut -o ~/Desktop/eclipse-cpp
-#  lxshortcut -o ~/Desktop/postman
-#  lxshortcut -o ~/Desktop/dbeaver-ce
-
-
-
-# Install ELK Stack
-#https://www.howtoforge.com/tutorial/ubuntu-elastic-stack/
-
-: '
-Tools no install in this script
-dbeaver-ce
-   excellent when you need to management different RDBMS with just one IDE or even NoSQL(note: CE/Community edition have some limitation for NoSQL DB)
-webdesigner
-'
-
-
-
-# How-do-i-set-profile-picture-on-lubuntu
-: '
-Start
-Under System Tools > select LightDM GTK + Greeting Settings
-Click on the default avartar icon at the bottom of the popup window to choose:
-change icon, or
-select file
-I got my icons from flaticon.com (not in anyway affiliated, just a happy user).
-'
-
+#restart and check the memory and active process, is important don't have any service running, remember is your developer laptop, NOT A PROD SERVER.
+reboot
 
 # Ubuntu Server Configuration 
 # ===================================================================
@@ -719,8 +694,8 @@ gnome-session-quit
 reboot
 startx
 
-# server web ui
-sudo apt install cockpit
+# Web GUI for the server 
+sudo apt install cockpit -y
 ```
 
 

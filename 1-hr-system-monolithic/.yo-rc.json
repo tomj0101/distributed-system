@@ -43,6 +43,6 @@
     "clientPackageManager": "npm",
     "languages": ["en", "es"],
     "entities": ["Region", "Country", "Location", "Department", "Task", "Employee", "Job", "JobHistory"],
-    "lastLiquibaseTimestamp": 1624000125000
+    "lastLiquibaseTimestamp": 1624001259000
   }
 }

@@ -700,4 +700,4 @@ sudo apt install cockpit -y
 
 
 ### Credits
-Autthor: Tom
+Author: Tom

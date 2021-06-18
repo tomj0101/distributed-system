@@ -4,7 +4,7 @@ The setup of this script is for run in debian version of Linux, GNU/Linux Ubuntu
 ###  Included: User software, tools, script, library, Framework, Programming Language 
 ```
 #check OS Update
-sudo apt update -y:
+sudo apt update -y
 apt list --upgradable
 
 ===========================================================
@@ -175,15 +175,6 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 #pass in Github key setup
 https://github.com/settings/keys
 
-# Database tools:
-sudo snap install dbeaver-ce # GUI tools for Oracle, SQL Server, MySQL and Other DB
-sudo snap install mysql-workbench-community # Official Admin GUI for MySQL
-sudo snap install robomongo # GUI for MongoDB
-sudo snap install redis-desktop-manager # GUI for Redis 
-sudo snap install cass  # GUI for cassandra
-sudo apt install pgadmin3 -y # Desktop GUI for PostgreSQL
-pip3 install pgadmin4 # Web GUI for PostgreSQL, is a little bit slower.
-
 ==============================================================================
 =============== PROGRAMMING LANGUAGES =============== 
 
@@ -258,6 +249,9 @@ sudo npm install -g generator-jhipster
 =============== PYTHON =============== 
 sudo apt install python3 -y
 sudo apt install python3-pip -y
+
+sudo apt install python -y # still using Python 2 for Linux SysAdmin, Batch task with server without Python3
+
 # python3 -m http.server 8080
 
 #Run Python faster using PyPy: PyPy is a just-in-time compiler while CPython is an interpreter, On average, PyPy is 4.2 times faster than CPython
@@ -403,8 +397,7 @@ rails new myapp
 #### If you want to use MySQL
 rails new myapp -d mysql
 #### If you want to use Postgres
-# Note that this will expect a postgres user with the same username
-# as your app, you may need to edit config/database.yml to match the
+# Note that this will expect a postgres ushttp://127.0.0.1:5050 /database.yml to match the
 # user you created earlier
 rails new myapp -d postgresql
 # Move into the application directory
@@ -438,7 +431,19 @@ sudo apt install haskell-platform -y
 =============== DATABASE SYSTEMS (SQL, NOSQL, CACHE, QUEUE) =============== 
 # Note: if your role is just dev, probably a Docker file to run your local database will be enough, but if your Role is DBA or System Admin this database, then yes this section is or you.
 
-#postgresql
+# Database client and tools:
+sudo snap install dbeaver-ce # GUI tools for Oracle, SQL Server, MySQL and Other DB
+sudo snap install mysql-workbench-community # Official Admin GUI for MySQL
+sudo snap install robomongo # GUI for MongoDB
+sudo snap install redis-desktop-manager # GUI for Redis 
+sudo snap install cass  # GUI for cassandra
+sudo apt install pgadmin3 -y # Desktop GUI for PostgreSQL
+sudo pip3 install pgadmin4 # Web GUI for PostgreSQL, is a little bit slower.
+# $ pgadmin4
+# http://127.0.0.1:5050 
+
+
+#PostgreSQL Server
 
 #https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
 apt install postgresql -y
@@ -450,7 +455,7 @@ systemctl restart postgresql
 #apt install pgadmin3 
 sudo su postgres
 
-#mysql
+#Mysql Server
 
 sudo apt update
 sudo apt install mysql-server

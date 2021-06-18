@@ -10,8 +10,8 @@
     "skipUserManagement": false,
     "skipCheckLengthOfIdentifier": false,
     "skipFakeData": false,
-    "jhiPrefix": "jhi",
-    "entitySuffix": "",
+    "jhiPrefix": "hr",
+    "entitySuffix": "t",
     "dtoSuffix": "DTO",
     "testFrameworks": ["cypress", "gatling"],
     "pages": [],
@@ -41,6 +41,8 @@
     "packageFolder": "com/github/tomj0101/hrsystem",
     "rememberMeKey": "6f6ccf49d98c6777d6d6040aa85bb4ee794194790dd30d741bcf867bfc90da63788ab03b12535b53f1901c6cac460c63cd7b",
     "clientPackageManager": "npm",
-    "languages": ["en", "es"]
+    "languages": ["en", "es"],
+    "entities": ["Region", "Country", "Location", "Department", "Task", "Employee", "Job", "JobHistory"],
+    "lastLiquibaseTimestamp": 1624000125000
   }
 }

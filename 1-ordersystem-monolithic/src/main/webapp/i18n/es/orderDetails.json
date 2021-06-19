@@ -1,0 +1,26 @@
+{
+  "ordersystemApp": {
+    "orderDetails": {
+      "home": {
+        "title": "Order Details",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Order Details",
+        "createOrEditLabel": "Crear o editar Order Details",
+        "notFound": "Ningún Order Details encontrado"
+      },
+      "created": "Un nuevo Order Details ha sido creado con el identificador {{ param }}",
+      "updated": "Un Order Details ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Order Details ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Order Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Details"
+      },
+      "id": "Id",
+      "userId": "User Id",
+      "registerDate": "Register Date",
+      "orderMaster": "Order Master"
+    }
+  }
+}

@@ -2,7 +2,7 @@ package com.github.tomj0101.ebankv1.ordersystem.service.dto;
 
 import com.github.tomj0101.ebankv1.ordersystem.config.Constants;
 import com.github.tomj0101.ebankv1.ordersystem.domain.Authority;
-import com.github.tomj0101.ebankv1.ordersystem.domain.User;
+import com.github.tomj0101.ebankv1.ordersystem.domain.UserV1;
 import java.time.Instant;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -52,7 +52,7 @@ public class AdminUserDTO {
         // Empty constructor needed for Jackson.
     }
 
-    public AdminUserDTO(User user) {
+    public AdminUserDTO(UserV1 user) {
         this.id = user.getId();
         this.login = user.getLogin();
         this.firstName = user.getFirstName();

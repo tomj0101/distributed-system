@@ -2,7 +2,7 @@ package com.github.tomj0101.ebankv1.ordersystem.service;
 
 import com.github.tomj0101.ebankv1.ordersystem.config.Constants;
 import com.github.tomj0101.ebankv1.ordersystem.domain.Authority;
-import com.github.tomj0101.ebankv1.ordersystem.domain.User;
+import com.github.tomj0101.ebankv1.ordersystem.domain.UserV1;
 import com.github.tomj0101.ebankv1.ordersystem.repository.AuthorityRepository;
 import com.github.tomj0101.ebankv1.ordersystem.repository.PersistentTokenRepository;
 import com.github.tomj0101.ebankv1.ordersystem.repository.UserRepository;
@@ -59,7 +59,7 @@ public class UserService {
         this.cacheManager = cacheManager;
     }
 
-    public Optional<User> activateRegistration(String key) {
+    public Optional<UserV1> activateRegistration(String key) {
         log.debug("Activating user for activation key {}", key);
         return userRepository
             .findOneByActivationKey(key)
@@ -75,7 +75,7 @@ public class UserService {
             );
     }
 
-    public Optional<User> completePasswordReset(String newPassword, String key) {
+    public Optional<UserV1> completePasswordReset(String newPassword, String key) {
         log.debug("Reset user password for reset key {}", key);
         return userRepository
             .findOneByResetKey(key)
@@ -91,10 +91,10 @@ public class UserService {
             );
     }
 
-    public Optional<User> requestPasswordReset(String mail) {
+    public Optional<UserV1> requestPasswordReset(String mail) {
         return userRepository
             .findOneByEmailIgnoreCase(mail)
-            .filter(User::isActivated)
+            .filter(UserV1::isActivated)
             .map(
                 user -> {
                     user.setResetKey(RandomUtil.generateResetKey());
@@ -105,7 +105,7 @@ public class UserService {
             );
     }
 
-    public User registerUser(AdminUserDTO userDTO, String password) {
+    public UserV1 registerUser(AdminUserDTO userDTO, String password) {
         userRepository
             .findOneByLogin(userDTO.getLogin().toLowerCase())
             .ifPresent(
@@ -126,7 +126,7 @@ public class UserService {
                     }
                 }
             );
-        User newUser = new User();
+        UserV1 newUser = new UserV1();
         String encryptedPassword = passwordEncoder.encode(password);
         newUser.setLogin(userDTO.getLogin().toLowerCase());
         // new user gets initially a generated password
@@ -151,7 +151,7 @@ public class UserService {
         return newUser;
     }
 
-    private boolean removeNonActivatedUser(User existingUser) {
+    private boolean removeNonActivatedUser(UserV1 existingUser) {
         if (existingUser.isActivated()) {
             return false;
         }
@@ -161,8 +161,8 @@ public class UserService {
         return true;
     }
 
-    public User createUser(AdminUserDTO userDTO) {
-        User user = new User();
+    public UserV1 createUser(AdminUserDTO userDTO) {
+        UserV1 user = new UserV1();
         user.setLogin(userDTO.getLogin().toLowerCase());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
@@ -306,12 +306,12 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public Optional<User> getUserWithAuthoritiesByLogin(String login) {
+    public Optional<UserV1> getUserWithAuthoritiesByLogin(String login) {
         return userRepository.findOneWithAuthoritiesByLogin(login);
     }
 
     @Transactional(readOnly = true)
-    public Optional<User> getUserWithAuthorities() {
+    public Optional<UserV1> getUserWithAuthorities() {
         return SecurityUtils.getCurrentUserLogin().flatMap(userRepository::findOneWithAuthoritiesByLogin);
     }
 
@@ -329,7 +329,7 @@ public class UserService {
             .forEach(
                 token -> {
                     log.debug("Deleting token {}", token.getSeries());
-                    User user = token.getUser();
+                    UserV1 user = token.getUser();
                     user.getPersistentTokens().remove(token);
                     persistentTokenRepository.delete(token);
                 }
@@ -363,7 +363,7 @@ public class UserService {
         return authorityRepository.findAll().stream().map(Authority::getName).collect(Collectors.toList());
     }
 
-    private void clearUserCaches(User user) {
+    private void clearUserCaches(UserV1 user) {
         Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE)).evict(user.getLogin());
         if (user.getEmail() != null) {
             Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE)).evict(user.getEmail());

@@ -1,6 +1,6 @@
 package com.github.tomj0101.ebankv1.ordersystem.security;
 
-import com.github.tomj0101.ebankv1.ordersystem.domain.User;
+import com.github.tomj0101.ebankv1.ordersystem.domain.UserV1;
 import com.github.tomj0101.ebankv1.ordersystem.repository.UserRepository;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -48,7 +48,7 @@ public class DomainUserDetailsService implements UserDetailsService {
             .orElseThrow(() -> new UsernameNotFoundException("User " + lowercaseLogin + " was not found in the database"));
     }
 
-    private org.springframework.security.core.userdetails.User createSpringSecurityUser(String lowercaseLogin, User user) {
+    private org.springframework.security.core.userdetails.User createSpringSecurityUser(String lowercaseLogin, UserV1 user) {
         if (!user.isActivated()) {
             throw new UserNotActivatedException("User " + lowercaseLogin + " was not activated");
         }

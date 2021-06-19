@@ -1,6 +1,6 @@
 package com.github.tomj0101.ebankv1.ordersystem.repository;
 
-import com.github.tomj0101.ebankv1.ordersystem.domain.User;
+import com.github.tomj0101.ebankv1.ordersystem.domain.UserV1;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
@@ -12,31 +12,31 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * Spring Data JPA repository for the {@link User} entity.
+ * Spring Data JPA repository for the {@link UserV1} entity.
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserV1, Long> {
     String USERS_BY_LOGIN_CACHE = "usersByLogin";
 
     String USERS_BY_EMAIL_CACHE = "usersByEmail";
 
-    Optional<User> findOneByActivationKey(String activationKey);
+    Optional<UserV1> findOneByActivationKey(String activationKey);
 
-    List<User> findAllByActivatedIsFalseAndActivationKeyIsNotNullAndCreatedDateBefore(Instant dateTime);
+    List<UserV1> findAllByActivatedIsFalseAndActivationKeyIsNotNullAndCreatedDateBefore(Instant dateTime);
 
-    Optional<User> findOneByResetKey(String resetKey);
+    Optional<UserV1> findOneByResetKey(String resetKey);
 
-    Optional<User> findOneByEmailIgnoreCase(String email);
+    Optional<UserV1> findOneByEmailIgnoreCase(String email);
 
-    Optional<User> findOneByLogin(String login);
+    Optional<UserV1> findOneByLogin(String login);
 
     @EntityGraph(attributePaths = "authorities")
     @Cacheable(cacheNames = USERS_BY_LOGIN_CACHE)
-    Optional<User> findOneWithAuthoritiesByLogin(String login);
+    Optional<UserV1> findOneWithAuthoritiesByLogin(String login);
 
     @EntityGraph(attributePaths = "authorities")
     @Cacheable(cacheNames = USERS_BY_EMAIL_CACHE)
-    Optional<User> findOneWithAuthoritiesByEmailIgnoreCase(String email);
+    Optional<UserV1> findOneWithAuthoritiesByEmailIgnoreCase(String email);
 
-    Page<User> findAllByIdNotNullAndActivatedIsTrue(Pageable pageable);
+    Page<UserV1> findAllByIdNotNullAndActivatedIsTrue(Pageable pageable);
 }

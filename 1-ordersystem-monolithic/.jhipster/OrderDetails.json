@@ -1,0 +1,38 @@
+{
+  "name": "OrderDetails",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "userId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "registerDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "orderMaster",
+      "otherEntityRelationshipName": "orderDetails",
+      "relationshipName": "orderMaster",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "javadoc": "Order entity. Detail\\n@author Tom\\nChanges:\\nCreated on 2021-06-19 14:01  - by Tom",
+  "entityTableName": "order_details",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210619224614"
+}

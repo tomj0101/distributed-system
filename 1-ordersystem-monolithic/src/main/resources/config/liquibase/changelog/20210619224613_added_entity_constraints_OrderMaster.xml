@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity OrderMaster.
+    -->
+    <changeSet id="20210619224613-2" author="Tom">
+
+        <addForeignKeyConstraint baseColumnNames="address_id"
+                                 baseTableName="order_master"
+                                 constraintName="fk_order_master__address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="order_master"
+                                 constraintName="fk_order_master__status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="order_master"
+                                 constraintName="fk_order_master__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tbl_user"/>
+    </changeSet>
+</databaseChangeLog>

@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.github.tomj0101.ebankv1.ordersystem.IntegrationTest;
-import com.github.tomj0101.ebankv1.ordersystem.domain.User;
+import com.github.tomj0101.ebankv1.ordersystem.domain.UserV1;
 import com.github.tomj0101.ebankv1.ordersystem.repository.UserRepository;
 import com.github.tomj0101.ebankv1.ordersystem.security.AuthoritiesConstants;
 import javax.persistence.EntityManager;
@@ -42,7 +42,7 @@ class PublicUserResourceIT {
     @Autowired
     private MockMvc restUserMockMvc;
 
-    private User user;
+    private UserV1 user;
 
     @BeforeEach
     public void setup() {

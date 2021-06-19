@@ -1,0 +1,3 @@
+id;name;description;product_images;product_images_content_type;price;condition;active;register_date
+1;Cpp Book Inter;../fake-data/blob/cppbookdescription.txt;../fake-data/blob/cppbookcover.jpg;image/png;31485;USED;true;2021-06-19T02:41:23
+2;Cpp Book Advance;../fake-data/blob/cppbookdescription.txt;../fake-data/blob/cppbookcover.jpg;image/png;31485;USED;true;2021-06-19T02:41:23

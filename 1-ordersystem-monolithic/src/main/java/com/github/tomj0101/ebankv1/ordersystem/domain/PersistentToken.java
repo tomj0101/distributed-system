@@ -16,7 +16,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * @see com.github.tomj0101.ebankv1.ordersystem.security.PersistentTokenRememberMeServices
  */
 @Entity
-@Table(name = "jhi_persistent_token")
+@Table(name = "tbl_persistent_token")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class PersistentToken implements Serializable {
 
@@ -45,7 +45,7 @@ public class PersistentToken implements Serializable {
 
     @JsonIgnore
     @ManyToOne
-    private User user;
+    private UserV1 user;
 
     public String getSeries() {
         return series;
@@ -91,11 +91,11 @@ public class PersistentToken implements Serializable {
         }
     }
 
-    public User getUser() {
+    public UserV1 getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserV1 user) {
         this.user = user;
     }
 

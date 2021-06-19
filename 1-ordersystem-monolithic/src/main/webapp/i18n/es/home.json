@@ -1,19 +1,19 @@
 {
   "home": {
-    "title": "¡Bienvenido, Java Hipster!",
+    "title": "¡Bienvenido, Java ebank!",
     "subtitle": "Esta es su página de inicio",
     "logged": {
       "message": "Está conectado como \"{{username}}\"."
     },
-    "question": "Si tiene preguntas sobre JHipster:",
+    "question": "Si tiene preguntas sobre ebank:",
     "link": {
-      "homepage": "Página de inicio de JHipster",
-      "stackoverflow": "JHipster en Stack Overflow",
-      "bugtracker": "JHipster seguimiento de errores",
-      "chat": "Sala de chat pública de JHipster",
-      "follow": "contacto @jhipster en Twitter"
+      "homepage": "Página de inicio de ebank",
+      "stackoverflow": "ebank en Stack Overflow",
+      "bugtracker": "ebank seguimiento de errores",
+      "chat": "Sala de chat pública de ebank",
+      "follow": "contacto @ebank en Twitter"
     },
-    "like": "Si te gusta JHipster, danos una estrella en",
+    "like": "Si te gusta ebank, danos una estrella en",
     "github": "GitHub"
   }
 }

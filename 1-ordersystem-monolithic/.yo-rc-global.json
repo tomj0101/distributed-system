@@ -1,8 +1,0 @@
-{
-  "generator-jhipster:7.0.1": {
-    "promptValues": {
-      "packageName": "com.github.tomj0101.ebankv1.ordersystem",
-      "nativeLanguage": "en"
-    }
-  }
-}

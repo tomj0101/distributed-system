@@ -10,8 +10,8 @@
     "skipUserManagement": false,
     "skipCheckLengthOfIdentifier": false,
     "skipFakeData": false,
-    "jhiPrefix": "jhi",
-    "entitySuffix": "",
+    "jhiPrefix": "tbl",
+    "entitySuffix": "V1",
     "dtoSuffix": "DTO",
     "testFrameworks": ["cypress", "gatling"],
     "pages": [],
@@ -43,6 +43,6 @@
     "clientPackageManager": "npm",
     "languages": ["en", "es"],
     "entities": ["Status", "Address", "Product", "OrderMaster", "OrderDetails"],
-    "lastLiquibaseTimestamp": 1623435598000
+    "lastLiquibaseTimestamp": 1624142774000
   }
 }

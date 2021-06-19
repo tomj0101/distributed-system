@@ -12,14 +12,14 @@
     <name>Ordersystem</name>
 
     <repositories>
-        <!-- jhipster-needle-maven-repository -->
+        <!--needle-maven-repository -->
     </repositories>
 
     <pluginRepositories>
-        <!-- jhipster-needle-maven-plugin-repository -->
+        <!-- needle-maven-plugin-repository -->
     </pluginRepositories>
 
-    <!-- jhipster-needle-distribution-management -->
+    <!-- needle-distribution-management -->
 
     <properties>
         <!-- Build properties -->
@@ -44,8 +44,7 @@
 
         <!-- Dependency versions -->
         <jhipster-dependencies.version>7.0.1</jhipster-dependencies.version>
-        <!-- The spring-boot version should match the one managed by
-        https://mvnrepository.com/artifact/tech.jhipster/jhipster-dependencies/${jhipster-dependencies.version} -->
+        
         <spring-boot.version>2.4.4</spring-boot.version>
         <!-- The hibernate version should match the one managed by
         https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/${spring-boot.version} -->
@@ -82,7 +81,7 @@
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
         <properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
         <sonar-maven-plugin.version>3.8.0.2131</sonar-maven-plugin.version>
-        <!-- jhipster-needle-maven-property -->
+        <!-- needle-maven-property -->
     </properties>
 
     <dependencyManagement>
@@ -94,7 +93,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- jhipster-needle-maven-add-dependency-management -->
+            <!-- needle-maven-add-dependency-management -->
         </dependencies>
     </dependencyManagement>
 
@@ -293,7 +292,7 @@
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-core</artifactId>
         </dependency>
-        <!-- jhipster-needle-maven-add-dependency -->
+        <!-- needle-maven-add-dependency -->
     </dependencies>
 
     <build>
@@ -359,7 +358,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>properties-maven-plugin</artifactId>
             </plugin>
-            <!-- jhipster-needle-maven-add-plugin -->
+            <!-- needle-maven-add-plugin -->
         </plugins>
         <pluginManagement>
             <plugins>
@@ -422,7 +421,7 @@
                                 <artifactId>jaxb-runtime</artifactId>
                                 <version>${jaxb-runtime.version}</version>
                             </path>
-                            <!-- jhipster-needle-maven-add-annotation-processor -->
+                            <!-- needle-maven-add-annotation-processor -->
                         </annotationProcessorPaths>
                     </configuration>
                 </plugin>
@@ -673,11 +672,11 @@
                     <configuration>
                         <rules>
                             <requireMavenVersion>
-                                <message>You are running an older version of Maven. JHipster requires at least Maven ${maven.version}</message>
+                                <message>You are running an older version of Maven. requires at least Maven ${maven.version}</message>
                                 <version>[${maven.version},)</version>
                             </requireMavenVersion>
                             <requireJavaVersion>
-                                <message>You are running an incompatible version of Java. JHipster supports JDK 8 to 15.</message>
+                                <message>You are running an incompatible version of Java. supports JDK 8 to 15.</message>
                                 <version>[1.8,16)</version>
                             </requireJavaVersion>
                         </rules>
@@ -797,7 +796,7 @@
                     </configuration>
 
                 </plugin>
-                <!-- jhipster-needle-maven-add-plugin-management -->
+                <!-- needle-maven-add-plugin-management -->
             </plugins>
         </pluginManagement>
     </build>
@@ -1106,6 +1105,6 @@
                 </pluginManagement>
             </build>
         </profile>
-        <!-- jhipster-needle-maven-add-profile -->
+        <!-- needle-maven-add-profile -->
     </profiles>
 </project>

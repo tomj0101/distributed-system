@@ -45,12 +45,19 @@ public class CacheConfiguration {
         return cm -> {
             createCache(cm, com.github.tomj0101.ebankv1.ordersystem.repository.UserRepository.USERS_BY_LOGIN_CACHE);
             createCache(cm, com.github.tomj0101.ebankv1.ordersystem.repository.UserRepository.USERS_BY_EMAIL_CACHE);
-            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.User.class.getName());
+            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.UserV1.class.getName());
             createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.Authority.class.getName());
-            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.UserV1.class.getName() + ".authorities");
             createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.PersistentToken.class.getName());
-            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.User.class.getName() + ".persistentTokens");
-            // jhipster-needle-ehcache-add-entry
+            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.UserV1.class.getName() + ".persistentTokens");
+            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.StatusV1.class.getName());
+            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.AddressV1.class.getName());
+            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.ProductV1.class.getName());
+            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.OrderMasterV1.class.getName());
+            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.OrderDetailsV1.class.getName());
+            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.OrderDetailsV1.class.getName() + ".products");
+            createCache(cm, com.github.tomj0101.ebankv1.ordersystem.domain.ProductV1.class.getName() + ".orderDetails");
+            // needle-ehcache-add-entry
         };
     }
 

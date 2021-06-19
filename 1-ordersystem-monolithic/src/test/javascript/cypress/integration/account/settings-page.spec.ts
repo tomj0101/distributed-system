@@ -17,7 +17,7 @@ describe('/account/settings', () => {
   });
 
   it("should be able to change 'user' firstname settings", () => {
-    cy.get(firstNameSettingsSelector).clear().type('jhipster');
+    cy.get(firstNameSettingsSelector).clear().type('ebank');
     // need to modify email because default email does not match regex in vue
     cy.get(emailSettingsSelector).clear().type('user@localhost.fr');
     cy.get(submitSettingsSelector).click({ force: true });

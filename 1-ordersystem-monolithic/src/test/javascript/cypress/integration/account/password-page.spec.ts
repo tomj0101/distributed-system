@@ -29,21 +29,21 @@ describe('/account/password', () => {
   });
 
   it('requires new password', () => {
-    cy.get(newPasswordSelector).should('have.class', classInvalid).type('jhipster').should('have.class', classValid);
+    cy.get(newPasswordSelector).should('have.class', classInvalid).type('ebank').should('have.class', classValid);
     cy.get(newPasswordSelector).clear();
   });
 
   it('requires confirm new password', () => {
-    cy.get(newPasswordSelector).type('jhipster');
-    cy.get(confirmPasswordSelector).should('have.class', classInvalid).type('jhipster').should('have.class', classValid);
+    cy.get(newPasswordSelector).type('ebank');
+    cy.get(confirmPasswordSelector).should('have.class', classInvalid).type('ebank').should('have.class', classValid);
     cy.get(newPasswordSelector).clear();
     cy.get(confirmPasswordSelector).clear();
   });
 
   it('should fail to update password when using incorrect current password', () => {
     cy.get(currentPasswordSelector).type('wrong-current-password');
-    cy.get(newPasswordSelector).type('jhipster');
-    cy.get(confirmPasswordSelector).type('jhipster');
+    cy.get(newPasswordSelector).type('ebank');
+    cy.get(confirmPasswordSelector).type('ebank');
     cy.get(submitPasswordSelector).click({ force: true });
     cy.wait('@passwordSave').then(({ request, response }) => expect(response.statusCode).to.equal(400));
     cy.get(currentPasswordSelector).clear();

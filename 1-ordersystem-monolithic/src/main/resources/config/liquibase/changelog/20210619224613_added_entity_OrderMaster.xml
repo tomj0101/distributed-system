@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity OrderMaster.
+    -->
+    <changeSet id="20210619224613-1" author="Tom">
+        <createTable tableName="order_master" remarks="Order entity. Master\n@author Tom\nChanges:\nCreated on 2021-06-19 14:01  - by Tom">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="payment_method" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="total" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="email" type="varchar(500)">
+                <constraints nullable="false" />
+            </column>
+            <column name="register_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="address_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_order_master__address_id" />
+            </column>
+            <column name="status_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_order_master__status_id" />
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- needle-liquibase-add-column -will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="order_master" columnName="register_date" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- needle-liquibase-add-changeset - will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210619224613-1-data" author="Tom" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/order_master.csv"
+                  separator=";"
+                  tableName="order_master">
+            <column name="id" type="numeric"/>
+            <column name="payment_method" type="string"/>
+            <column name="total" type="numeric"/>
+            <column name="email" type="string"/>
+            <column name="register_date" type="${datetimeType}"/>
+            <!-- needle-liquibase-add-loadcolumn - (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

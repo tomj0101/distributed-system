@@ -84,7 +84,7 @@ module.exports = options =>
             },
           },
           /*
-      ,ghostMode: { // uncomment this part to disable BrowserSync ghostMode; https://github.com/jhipster/generator-jhipster/issues/11116
+      ,ghostMode: { // uncomment this part to disable BrowserSync ghostMode; 
         clicks: false,
         location: false,
         forms: false,
@@ -98,7 +98,7 @@ module.exports = options =>
       new webpack.HotModuleReplacementPlugin(),
       new WebpackNotifierPlugin({
         title: 'Ordersystem',
-        contentImage: path.join(__dirname, 'logo-jhipster.png'),
+        contentImage: path.join(__dirname, 'T.png'),
       }),
     ].filter(Boolean),
   });

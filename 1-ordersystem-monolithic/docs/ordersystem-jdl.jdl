@@ -7,7 +7,7 @@
 entity Status {
     id Long
 	name String  minlength(1) maxlength(500) required
-	description String
+	description String minlength(1) maxlength(500) required
 	registerDate Instant
 }
 
@@ -20,10 +20,10 @@ entity Status {
 entity Address {
     id Long
 	streetAddress String minlength(1) maxlength(500) required
-	postalCode Integer min(1) max(5)
-	city String
-	stateProvince String
-	userId Long //the same datatype of User.id
+	postalCode Integer required
+	city String minlength(1) maxlength(200) required
+	stateProvince String minlength(1) maxlength(200) required
+
 }
 
 
@@ -55,9 +55,8 @@ entity OrderMaster {
     id Long
 	paymentMethod String //VISA****0102
 	total Double
-	wishlistId UUID
+	//wishlistId UUID
 	email String minlength(1) maxlength(500) required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
-	userId Long
     registerDate Instant
 
 }
@@ -70,7 +69,6 @@ entity OrderMaster {
  */
  entity OrderDetails{
 	 id Long
-	 productId Integer
 	 userId Long
      registerDate Instant
  }
@@ -90,13 +88,27 @@ enum Condition {
  * Relationship
  */
 relationship OneToOne {
+	//### OrderMaster ####
 	OrderMaster{address(streetAddress)} to Address
     OrderMaster{status(name)} to Status
+
+	//### OrderDetails ####
+	OrderDetails{OrderMaster(id)} to OrderMaster  //Array OrderMaster.orderDetails[]	
+	
+	//### Address ####
+	Address{User} to User
 }
 
-relationship OneToMany {
-	OrderMaster{OrderDetails(id)} to OrderDetails  //Array OrderMaster.orderDetails[]
-    OrderDetails{Product(name)} to Product         //Array OrderDetails.product[]
+/*
+relationship OneToMany{
+	
+	OrderDetails{User} to User
+	OrderDetails{Product(name)} to Product        //Array OrderDetails.product[]
+}*/
+
+
+relationship ManyToOne{
+	OrderMaster to User //this is the same as OrderMaster{User} to User
 }
 
 

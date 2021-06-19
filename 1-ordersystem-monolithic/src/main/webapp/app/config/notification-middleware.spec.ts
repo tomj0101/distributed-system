@@ -50,7 +50,7 @@ describe('Notification Middleware', () => {
     payload: Promise.reject({
       response: {
         data: {
-          type: 'https://www.jhipster.tech/problem/constraint-violation',
+          type: 'https://github.com/tomj0101/distributed-system/problem/constraint-violation',
           title: 'Method argument not valid',
           status: 400,
           path: '/api/foos',

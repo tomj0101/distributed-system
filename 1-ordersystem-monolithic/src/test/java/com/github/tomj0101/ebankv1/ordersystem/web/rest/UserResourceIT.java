@@ -9,7 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.github.tomj0101.ebankv1.ordersystem.IntegrationTest;
 import com.github.tomj0101.ebankv1.ordersystem.domain.Authority;
-import com.github.tomj0101.ebankv1.ordersystem.domain.User;
+import com.github.tomj0101.ebankv1.ordersystem.domain.UserV1;
 import com.github.tomj0101.ebankv1.ordersystem.repository.UserRepository;
 import com.github.tomj0101.ebankv1.ordersystem.security.AuthoritiesConstants;
 import com.github.tomj0101.ebankv1.ordersystem.service.dto.AdminUserDTO;
@@ -40,21 +40,21 @@ import org.springframework.transaction.annotation.Transactional;
 class UserResourceIT {
 
     private static final String DEFAULT_LOGIN = "johndoe";
-    private static final String UPDATED_LOGIN = "jhipster";
+    private static final String UPDATED_LOGIN = "ebank";
 
     private static final Long DEFAULT_ID = 1L;
 
     private static final String DEFAULT_PASSWORD = "passjohndoe";
-    private static final String UPDATED_PASSWORD = "passjhipster";
+    private static final String UPDATED_PASSWORD = "passebank";
 
     private static final String DEFAULT_EMAIL = "johndoe@localhost";
-    private static final String UPDATED_EMAIL = "jhipster@localhost";
+    private static final String UPDATED_EMAIL = "ebank@localhost";
 
     private static final String DEFAULT_FIRSTNAME = "john";
-    private static final String UPDATED_FIRSTNAME = "jhipsterFirstName";
+    private static final String UPDATED_FIRSTNAME = "ebankFirstName";
 
     private static final String DEFAULT_LASTNAME = "doe";
-    private static final String UPDATED_LASTNAME = "jhipsterLastName";
+    private static final String UPDATED_LASTNAME = "ebankLastName";
 
     private static final String DEFAULT_IMAGEURL = "http://placehold.it/50x50";
     private static final String UPDATED_IMAGEURL = "http://placehold.it/40x40";
@@ -77,7 +77,7 @@ class UserResourceIT {
     @Autowired
     private MockMvc restUserMockMvc;
 
-    private User user;
+    private UserV1 user;
 
     @BeforeEach
     public void setup() {
@@ -91,8 +91,8 @@ class UserResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which has a required relationship to the User entity.
      */
-    public static User createEntity(EntityManager em) {
-        User user = new User();
+    public static UserV1 createEntity(EntityManager em) {
+        UserV1 user = new UserV1();
         user.setLogin(DEFAULT_LOGIN + RandomStringUtils.randomAlphabetic(5));
         user.setPassword(RandomStringUtils.random(60));
         user.setActivated(true);
@@ -107,8 +107,8 @@ class UserResourceIT {
     /**
      * Setups the database with one user.
      */
-    public static User initTestUser(UserRepository userRepository, EntityManager em) {
-        User user = createEntity(em);
+    public static UserV1 initTestUser(UserRepository userRepository, EntityManager em) {
+        UserV1 user = createEntity(em);
         user.setLogin(DEFAULT_LOGIN);
         user.setEmail(DEFAULT_EMAIL);
         return user;
@@ -149,7 +149,7 @@ class UserResourceIT {
         assertPersistedUsers(
             users -> {
                 assertThat(users).hasSize(databaseSizeBeforeCreate + 1);
-                User testUser = users.get(users.size() - 1);
+                UserV1 testUser = users.get(users.size() - 1);
                 assertThat(testUser.getLogin()).isEqualTo(DEFAULT_LOGIN);
                 assertThat(testUser.getFirstName()).isEqualTo(DEFAULT_FIRSTNAME);
                 assertThat(testUser.getLastName()).isEqualTo(DEFAULT_LASTNAME);
@@ -311,7 +311,7 @@ class UserResourceIT {
         int databaseSizeBeforeUpdate = userRepository.findAll().size();
 
         // Update the user
-        User updatedUser = userRepository.findById(user.getId()).get();
+        UserV1 updatedUser = userRepository.findById(user.getId()).get();
 
         ManagedUserVM managedUserVM = new ManagedUserVM();
         managedUserVM.setId(updatedUser.getId());
@@ -342,7 +342,7 @@ class UserResourceIT {
         assertPersistedUsers(
             users -> {
                 assertThat(users).hasSize(databaseSizeBeforeUpdate);
-                User testUser = users.stream().filter(usr -> usr.getId().equals(updatedUser.getId())).findFirst().get();
+                UserV1 testUser = users.stream().filter(usr -> usr.getId().equals(updatedUser.getId())).findFirst().get();
                 assertThat(testUser.getFirstName()).isEqualTo(UPDATED_FIRSTNAME);
                 assertThat(testUser.getLastName()).isEqualTo(UPDATED_LASTNAME);
                 assertThat(testUser.getEmail()).isEqualTo(UPDATED_EMAIL);
@@ -360,7 +360,7 @@ class UserResourceIT {
         int databaseSizeBeforeUpdate = userRepository.findAll().size();
 
         // Update the user
-        User updatedUser = userRepository.findById(user.getId()).get();
+        UserV1 updatedUser = userRepository.findById(user.getId()).get();
 
         ManagedUserVM managedUserVM = new ManagedUserVM();
         managedUserVM.setId(updatedUser.getId());
@@ -391,7 +391,7 @@ class UserResourceIT {
         assertPersistedUsers(
             users -> {
                 assertThat(users).hasSize(databaseSizeBeforeUpdate);
-                User testUser = users.stream().filter(usr -> usr.getId().equals(updatedUser.getId())).findFirst().get();
+                UserV1 testUser = users.stream().filter(usr -> usr.getId().equals(updatedUser.getId())).findFirst().get();
                 assertThat(testUser.getLogin()).isEqualTo(UPDATED_LOGIN);
                 assertThat(testUser.getFirstName()).isEqualTo(UPDATED_FIRSTNAME);
                 assertThat(testUser.getLastName()).isEqualTo(UPDATED_LASTNAME);
@@ -408,19 +408,19 @@ class UserResourceIT {
         // Initialize the database with 2 users
         userRepository.saveAndFlush(user);
 
-        User anotherUser = new User();
-        anotherUser.setLogin("jhipster");
+        UserV1 anotherUser = new UserV1();
+        anotherUser.setLogin("ebank");
         anotherUser.setPassword(RandomStringUtils.random(60));
         anotherUser.setActivated(true);
-        anotherUser.setEmail("jhipster@localhost");
+        anotherUser.setEmail("ebank@localhost");
         anotherUser.setFirstName("java");
-        anotherUser.setLastName("hipster");
+        anotherUser.setLastName("ebank");
         anotherUser.setImageUrl("");
         anotherUser.setLangKey("en");
         userRepository.saveAndFlush(anotherUser);
 
         // Update the user
-        User updatedUser = userRepository.findById(user.getId()).get();
+        UserV1 updatedUser = userRepository.findById(user.getId()).get();
 
         ManagedUserVM managedUserVM = new ManagedUserVM();
         managedUserVM.setId(updatedUser.getId());
@@ -428,7 +428,7 @@ class UserResourceIT {
         managedUserVM.setPassword(updatedUser.getPassword());
         managedUserVM.setFirstName(updatedUser.getFirstName());
         managedUserVM.setLastName(updatedUser.getLastName());
-        managedUserVM.setEmail("jhipster@localhost"); // this email should already be used by anotherUser
+        managedUserVM.setEmail("ebank@localhost"); // this email should already be used by anotherUser
         managedUserVM.setActivated(updatedUser.isActivated());
         managedUserVM.setImageUrl(updatedUser.getImageUrl());
         managedUserVM.setLangKey(updatedUser.getLangKey());
@@ -454,23 +454,23 @@ class UserResourceIT {
         // Initialize the database
         userRepository.saveAndFlush(user);
 
-        User anotherUser = new User();
-        anotherUser.setLogin("jhipster");
+        UserV1 anotherUser = new UserV1();
+        anotherUser.setLogin("ebank");
         anotherUser.setPassword(RandomStringUtils.random(60));
         anotherUser.setActivated(true);
-        anotherUser.setEmail("jhipster@localhost");
+        anotherUser.setEmail("ebank@localhost");
         anotherUser.setFirstName("java");
-        anotherUser.setLastName("hipster");
+        anotherUser.setLastName("ebank");
         anotherUser.setImageUrl("");
         anotherUser.setLangKey("en");
         userRepository.saveAndFlush(anotherUser);
 
         // Update the user
-        User updatedUser = userRepository.findById(user.getId()).get();
+        UserV1 updatedUser = userRepository.findById(user.getId()).get();
 
         ManagedUserVM managedUserVM = new ManagedUserVM();
         managedUserVM.setId(updatedUser.getId());
-        managedUserVM.setLogin("jhipster"); // this login should already be used by anotherUser
+        managedUserVM.setLogin("ebank"); // this login should already be used by anotherUser
         managedUserVM.setPassword(updatedUser.getPassword());
         managedUserVM.setFirstName(updatedUser.getFirstName());
         managedUserVM.setLastName(updatedUser.getLastName());
@@ -514,10 +514,10 @@ class UserResourceIT {
 
     @Test
     void testUserEquals() throws Exception {
-        TestUtil.equalsVerifier(User.class);
-        User user1 = new User();
+        TestUtil.equalsVerifier(UserV1.class);
+        UserV1 user1 = new UserV1();
         user1.setId(DEFAULT_ID);
-        User user2 = new User();
+        UserV1 user2 = new UserV1();
         user2.setId(user1.getId());
         assertThat(user1).isEqualTo(user2);
         user2.setId(2L);
@@ -541,7 +541,7 @@ class UserResourceIT {
         userDTO.setLastModifiedBy(DEFAULT_LOGIN);
         userDTO.setAuthorities(Collections.singleton(AuthoritiesConstants.USER));
 
-        User user = userMapper.userDTOToUser(userDTO);
+        UserV1 user = userMapper.userDTOToUser(userDTO);
         assertThat(user.getId()).isEqualTo(DEFAULT_ID);
         assertThat(user.getLogin()).isEqualTo(DEFAULT_LOGIN);
         assertThat(user.getFirstName()).isEqualTo(DEFAULT_FIRSTNAME);
@@ -608,7 +608,7 @@ class UserResourceIT {
         assertThat(authorityA).isEqualTo(authorityB).hasSameHashCodeAs(authorityB);
     }
 
-    private void assertPersistedUsers(Consumer<List<User>> userAssertion) {
+    private void assertPersistedUsers(Consumer<List<UserV1>> userAssertion) {
         userAssertion.accept(userRepository.findAll());
     }
 }

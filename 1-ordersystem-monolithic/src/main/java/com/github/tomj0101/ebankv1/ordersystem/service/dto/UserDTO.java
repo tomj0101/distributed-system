@@ -1,6 +1,6 @@
 package com.github.tomj0101.ebankv1.ordersystem.service.dto;
 
-import com.github.tomj0101.ebankv1.ordersystem.domain.User;
+import com.github.tomj0101.ebankv1.ordersystem.domain.UserV1;
 
 /**
  * A DTO representing a user, with only the public attributes.
@@ -15,7 +15,7 @@ public class UserDTO {
         // Empty constructor needed for Jackson.
     }
 
-    public UserDTO(User user) {
+    public UserDTO(UserV1 user) {
         this.id = user.getId();
         // Customize it here if you need, or not, firstName/lastName/etc
         this.login = user.getLogin();

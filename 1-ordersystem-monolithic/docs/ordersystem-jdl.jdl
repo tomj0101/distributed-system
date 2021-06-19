@@ -1,0 +1,108 @@
+/**
+ * Status entity
+ * @author Tom
+ * Changes:
+ * Created on 2021-06-19 14:01  - by Tom
+ */
+entity Status {
+    id Long
+	name String  minlength(1) maxlength(500) required
+	description String
+	registerDate Instant
+}
+
+/**
+ * Address entity.
+ * @author Tom
+ * Changes:
+ * Created on 2021-06-19 14:01  - by Tom
+ */
+entity Address {
+    id Long
+	streetAddress String minlength(1) maxlength(500) required
+	postalCode Integer min(1) max(5)
+	city String
+	stateProvince String
+	userId Long //the same datatype of User.id
+}
+
+
+/**
+ * Product entity.
+ * @author Tom
+ * Changes:
+ * Created on 2021-06-19 14:01  - by Tom
+ */
+entity Product {
+    id Long
+	name String minlength(1) maxlength(250) required
+	description TextBlob
+	productImages ImageBlob
+    price Double
+    condition Condition
+	active Boolean
+    registerDate Instant
+}
+
+
+/**
+ * Order entity. Master
+ * @author Tom
+ * Changes:
+ * Created on 2021-06-19 14:01  - by Tom 
+ */
+entity OrderMaster {
+    id Long
+	paymentMethod String //VISA****0102
+	total Double
+	wishlistId UUID
+	email String minlength(1) maxlength(500) required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+	userId Long
+    registerDate Instant
+
+}
+
+/**
+ * Order entity. Detail
+ * @author Tom
+ * Changes:
+ * Created on 2021-06-19 14:01  - by Tom 
+ */
+ entity OrderDetails{
+	 id Long
+	 productId Integer
+	 userId Long
+     registerDate Instant
+ }
+
+/**
+ * Condition enum.
+ * @author Tom
+ * Changes:
+ * Created on 2021-06-19 14:01  - by Tom 
+ */
+enum Condition {
+    NEW, USED
+}
+
+
+/**
+ * Relationship
+ */
+relationship OneToOne {
+	OrderMaster{address(streetAddress)} to Address
+    OrderMaster{status(name)} to Status
+}
+
+relationship OneToMany {
+	OrderMaster{OrderDetails(id)} to OrderDetails  //Array OrderMaster.orderDetails[]
+    OrderDetails{Product(name)} to Product         //Array OrderDetails.product[]
+}
+
+
+/**
+ * Paginate and Service
+ */
+paginate OrderDetails with infinite-scroll
+paginate Product, Address, OrderMaster with pagination
+service all with serviceImpl

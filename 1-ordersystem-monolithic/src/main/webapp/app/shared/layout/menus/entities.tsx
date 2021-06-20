@@ -23,9 +23,11 @@ export const EntitiesMenu = props => (
     <MenuItem icon="asterisk" to="/order-master">
       <Translate contentKey="global.menu.entities.orderMaster" />
     </MenuItem>
+    {/** 
     <MenuItem icon="asterisk" to="/order-details">
       <Translate contentKey="global.menu.entities.orderDetails" />
     </MenuItem>
+    */}
     {/* needle-add-entity-to-menu - will add entities to the menu here */}
   </NavDropdown>
 );

@@ -1,7 +1,8 @@
 package com.github.tomj0101.ebankv1.ordersystem.repository;
 
 import com.github.tomj0101.ebankv1.ordersystem.domain.OrderMasterV1;
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +13,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrderMasterRepository extends JpaRepository<OrderMasterV1, Long> {
     @Query("select orderMaster from OrderMasterV1 orderMaster where orderMaster.user.login = ?#{principal.username}")
-    List<OrderMasterV1> findByUserIsCurrentUser();
+    Page<OrderMasterV1> findByUserIsCurrentUser(Pageable pageable);
 }

@@ -1,6 +1,6 @@
-# ordersystem
+# Order System
 
-Order management system: Monolithic
+Order management system: Monolithic, Java 11+, Spring Boot, PostgreSQL
 
 ## Development
 
@@ -114,32 +114,6 @@ Unit tests are run by [Jest][]. They're located in [src/test/javascript/](src/te
 npm test
 ```
 
-### Other tests
-
-Performance tests are run by [Gatling][] and written in Scala. They're located in [src/test/gatling](src/test/gatling).
-
-To use those tests, you must install Gatling from [https://gatling.io/](https://gatling.io/).
-
-For more information, refer to the [Running tests page][].
-
-### Code quality
-
-Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
-
-```
-docker-compose -f src/main/docker/sonar.yml up -d
-```
-
-Note: we have turned off authentication in [src/main/docker/sonar.yml](src/main/docker/sonar.yml) for out of the box experience while trying out SonarQube, for real use cases turn it back on.
-
-You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the maven plugin.
-
-Then, run a Sonar analysis:
-
-```
-./mvnw -Pprod clean verify sonar:sonar
-```
-
 If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
 
 ```
@@ -148,40 +122,46 @@ If you need to re-run the Sonar phase, please be sure to specify at least the `i
 
 For more information, refer to the [Code quality page][].
 
-## Using Docker to simplify development (optional)
+## Using Vagrant to simplify development (optional)
+```
+vagrant up
 
-You can use Docker to improve your development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
+# database credentials
+username: usr_ebank
+password: ebank1234
+database: ebankv1
 
-For example, to start a postgresql database in a docker container, run:
+# script for create user and database
+
+CREATE ROLE usr_ebank LOGIN
+ENCRYPTED PASSWORD 'md5d1f68dfe6a808773402a65bfcd73e47f'
+SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION CONNECTION LIMIT 50 VALID UNTIL '2021-12-20 00:00:00';
+
+COMMENT ON ROLE usr_ebank IS 'Database user, also know as services user';
+
+CREATE DATABASE ebankv1
+WITH ENCODING='UTF8'
+CONNECTION LIMIT=-1;
+
+COMMENT ON DATABASE ebankv1
+IS 'Database for Version 1-Monolithic version';
 
 ```
-docker-compose -f src/main/docker/postgresql.yml up -d
-```
+[Tech References]
 
-To stop it and remove the container, run:
+[Java 11]: https://docs.oracle.com/javase/tutorial/
+[OpenJDK 11]: https://openjdk.java.net/projects/jdk/11/
+[Spring Boot]: https://spring.io/projects/spring-boot
+[Spring Data]: https://spring.io/projects/spring-data
+[Spring Security]: https://spring.io/projects/spring-security
+[Spring REST]: https://spring.io/projects/spring-restdocs#overview
 
-```
-docker-compose -f src/main/docker/postgresql.yml down
-```
+[PostgreSQL]: https://www.postgresql.org/docs/9.6/index.html
+[Vagrant]: https://www.vagrantup.com/intro
+[Apache Tomcat]: http://tomcat.apache.org/
 
-You can also fully dockerize your application and all the services that it depends on.
-To achieve this, first build a docker image of your app by running:
-
-```
-./mvnw -Pprod verify jib:dockerBuild
-```
-
-Then run:
-
-```
-docker-compose -f src/main/docker/app.yml up -d
-```
-
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`docker-compose`), which is able to generate docker configurations for one or several applications.
-
-## Continuous Integration (optional)
-
-To configure CI for your project, run the ci-cd sub-generator (`ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
+[ReactJS]: https://reactjs.org/
+[Typescript]: https://www.typescriptlang.org/
 
 [gatling]: https://gatling.io/
 [node.js]: https://nodejs.org/
@@ -192,5 +172,5 @@ To configure CI for your project, run the ci-cd sub-generator (`ci-cd`), this wi
 [protractor]: https://angular.github.io/protractor/
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
+[online HTML editor]: https://html-online.com/editor/
 
-[online HTML editor] https://html-online.com/editor/

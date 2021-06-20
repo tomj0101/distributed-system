@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 /**
  * Service Interface for managing {@link OrderDetailsV1}.
+ * This module is not in use
  */
 public interface OrderDetailsService {
     /**

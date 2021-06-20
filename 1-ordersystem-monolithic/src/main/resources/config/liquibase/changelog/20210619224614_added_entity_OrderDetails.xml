@@ -21,7 +21,7 @@
                 <constraints nullable="true" />
             </column>
             <column name="order_master_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_order_details__order_master_id" />
+                <constraints nullable="true" unique="true"  />
             </column>
             <!-- needle-liquibase-add-column -will add columns here -->
         </createTable>

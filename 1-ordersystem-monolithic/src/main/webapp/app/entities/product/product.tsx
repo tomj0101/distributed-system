@@ -108,12 +108,15 @@ export const Product = (props: IProductProps) => {
                 <th className="hand" onClick={sort('condition')}>
                   <Translate contentKey="ordersystemApp.product.condition">Condition</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
+                {/** 
                 <th className="hand" onClick={sort('active')}>
                   <Translate contentKey="ordersystemApp.product.active">Active</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
+
                 <th className="hand" onClick={sort('registerDate')}>
                   <Translate contentKey="ordersystemApp.product.registerDate">Register Date</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
+                */}
                 <th />
               </tr>
             </thead>
@@ -126,7 +129,9 @@ export const Product = (props: IProductProps) => {
                     </Button>
                   </td>
                   <td>{product.name}</td>
-                  <td>{product.description}</td>
+                  <td>
+                    <div dangerouslySetInnerHTML={{__html: product.description}}></div>
+                  </td>
                   <td>
                     {product.productImages ? (
                       <div>
@@ -149,8 +154,10 @@ export const Product = (props: IProductProps) => {
                   <td>
                     <Translate contentKey={`ordersystemApp.Condition.${product.condition}`} />
                   </td>
+                  {/**
                   <td>{product.active ? 'true' : 'false'}</td>
                   <td>{product.registerDate ? <TextFormat type="date" value={product.registerDate} format={APP_DATE_FORMAT} /> : null}</td>
+                   */}
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${product.id}`} color="info" size="sm" data-cy="entityDetailsButton">

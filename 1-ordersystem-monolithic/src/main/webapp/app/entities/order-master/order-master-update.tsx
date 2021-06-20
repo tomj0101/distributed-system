@@ -11,8 +11,6 @@ import { IAddress } from 'app/shared/model/address.model';
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
 import { IStatus } from 'app/shared/model/status.model';
 import { getEntities as getStatuses } from 'app/entities/status/status.reducer';
-import { IUser } from 'app/shared/model/user.model';
-import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './order-master.reducer';
 import { IOrderMaster } from 'app/shared/model/order-master.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
@@ -23,7 +21,7 @@ export interface IOrderMasterUpdateProps extends StateProps, DispatchProps, Rout
 export const OrderMasterUpdate = (props: IOrderMasterUpdateProps) => {
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
-  const { orderMasterEntity, addresses, statuses, users, loading, updating } = props;
+  const { orderMasterEntity, addresses, statuses,  loading, updating } = props;
 
   const handleClose = () => {
     props.history.push('/order-master' + props.location.search);
@@ -38,7 +36,6 @@ export const OrderMasterUpdate = (props: IOrderMasterUpdateProps) => {
 
     props.getAddresses();
     props.getStatuses();
-    props.getUsers();
   }, []);
 
   useEffect(() => {
@@ -54,9 +51,6 @@ export const OrderMasterUpdate = (props: IOrderMasterUpdateProps) => {
       const entity = {
         ...orderMasterEntity,
         ...values,
-        address: addresses.find(it => it.id.toString() === values.addressId.toString()),
-        status: statuses.find(it => it.id.toString() === values.statusId.toString()),
-        user: users.find(it => it.id.toString() === values.userId.toString()),
       };
 
       if (isNew) {
@@ -209,7 +203,7 @@ export const OrderMasterUpdate = (props: IOrderMasterUpdateProps) => {
 const mapStateToProps = (storeState: IRootState) => ({
   addresses: storeState.address.entities,
   statuses: storeState.status.entities,
-  users: storeState.userManagement.users,
+
   orderMasterEntity: storeState.orderMaster.entity,
   loading: storeState.orderMaster.loading,
   updating: storeState.orderMaster.updating,
@@ -219,7 +213,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 const mapDispatchToProps = {
   getAddresses,
   getStatuses,
-  getUsers,
+
   getEntity,
   updateEntity,
   createEntity,

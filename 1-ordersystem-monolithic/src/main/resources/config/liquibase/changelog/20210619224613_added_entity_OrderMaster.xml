@@ -27,10 +27,10 @@
                 <constraints nullable="true" />
             </column>
             <column name="address_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_order_master__address_id" />
+                <constraints nullable="true" />
             </column>
             <column name="status_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_order_master__status_id" />
+                <constraints nullable="true" />
             </column>
             <column name="user_id" type="bigint">
                 <constraints nullable="true" />

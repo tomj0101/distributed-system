@@ -106,12 +106,14 @@ export const OrderMaster = (props: IOrderMasterProps) => {
                 <th className="hand" onClick={sort('registerDate')}>
                   <Translate contentKey="ordersystemApp.orderMaster.registerDate">Register Date</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
+                {/**
                 <th>
                   <Translate contentKey="ordersystemApp.orderMaster.address">Address</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   <Translate contentKey="ordersystemApp.orderMaster.status">Status</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
+              */}
                 <th>
                   <Translate contentKey="ordersystemApp.orderMaster.user">User</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
@@ -132,11 +134,13 @@ export const OrderMaster = (props: IOrderMasterProps) => {
                   <td>
                     {orderMaster.registerDate ? <TextFormat type="date" value={orderMaster.registerDate} format={APP_DATE_FORMAT} /> : null}
                   </td>
+                  {/** 
                   <td>
                     {orderMaster.address ? <Link to={`address/${orderMaster.address.id}`}>{orderMaster.address.streetAddress}</Link> : ''}
                   </td>
                   <td>{orderMaster.status ? <Link to={`status/${orderMaster.status.id}`}>{orderMaster.status.name}</Link> : ''}</td>
-                  <td>{orderMaster.user ? orderMaster.user.id : ''}</td>
+                  */}
+                  <td>{orderMaster.user ? orderMaster.user.login : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${orderMaster.id}`} color="info" size="sm" data-cy="entityDetailsButton">

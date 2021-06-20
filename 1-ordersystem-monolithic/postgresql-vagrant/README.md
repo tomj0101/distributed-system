@@ -49,6 +49,7 @@ database: ebankv1
 CREATE ROLE usr_ebank LOGIN
 ENCRYPTED PASSWORD 'md5d1f68dfe6a808773402a65bfcd73e47f'
 SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION CONNECTION LIMIT 50 VALID UNTIL '2021-12-20 00:00:00';
+
 COMMENT ON ROLE usr_ebank IS 'Database user, also know as services user';
 
 ```
@@ -65,7 +66,7 @@ IS 'Database for Version 1-Monolithic version';
 
 ```
 
-# Drop tables (clean table for dev env)
+### Drop tables (clean table for dev env)
 ```
 DROP TABLE public.address CASCADE;
 DROP TABLE public.databasechangelog CASCADE;
@@ -78,9 +79,13 @@ DROP TABLE public.tbl_authority CASCADE;
 DROP TABLE public.tbl_persistent_token CASCADE;
 DROP TABLE public.tbl_user CASCADE;
 DROP TABLE public.tbl_user_authority CASCADE;
+
+DROP SEQUENCE public.sequence_generator CASCADE;
+
+
 ```
 
-# Truncate/cleanup table (for dev env)
+### Truncate/cleanup table (for dev env)
 ```
 TRUNCATE TABLE public.address CASCADE;
 TRUNCATE TABLE public.order_details CASCADE;
@@ -89,7 +94,7 @@ TRUNCATE TABLE public.product CASCADE;
 TRUNCATE TABLE public.status CASCADE;
 ```
 
-# Insert some data
+### Insert some data
 ```
 insert into status (description, name, register_date, id) values (?, ?, ?, ?)
 insert into status (description, name, register_date, id) values (?, ?, ?, ?)
@@ -99,7 +104,7 @@ insert into address (city, postal_code, state_province, street_address, user_id,
 
 ```
 
-# Dev mode Database connection from Java-Spring JPA
+### Dev mode Database connection from Java-Spring JPA
 ```
 spring:
   devtools:

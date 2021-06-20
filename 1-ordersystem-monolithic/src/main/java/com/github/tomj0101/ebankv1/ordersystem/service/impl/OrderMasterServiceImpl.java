@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service Implementation for managing {@link OrderMasterV1}.
+ * This module is not in use
  */
 @Service
 @Transactional
@@ -73,19 +74,24 @@ public class OrderMasterServiceImpl implements OrderMasterService {
     @Transactional(readOnly = true)
     public Page<OrderMasterV1> findAll(Pageable pageable) {
         log.debug("Request to get all OrderMasters");
-        return orderMasterRepository.findAll(pageable);
+        //return orderMasterRepository.findAll(pageable);
+        return orderMasterRepository.findByUserIsCurrentUser(pageable);
     }
 
     @Override
     @Transactional(readOnly = true)
     public Optional<OrderMasterV1> findOne(Long id) {
         log.debug("Request to get OrderMaster : {}", id);
+        //also security can be add it here to find just the Order that is yours.
+        //try to do it for put in practice your Spring Boot JPA knowledge
         return orderMasterRepository.findById(id);
     }
 
     @Override
     public void delete(Long id) {
         log.debug("Request to delete OrderMaster : {}", id);
+        //also security can be add it here to don't allow delete ordes that don't below to you
+        //try to do it for put in practice your Spring Boot JPA knowledge
         orderMasterRepository.deleteById(id);
     }
 }

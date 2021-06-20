@@ -66,6 +66,7 @@ entity OrderMaster {
  * @author Tom
  * Changes:
  * Created on 2021-06-19 14:01  - by Tom 
+   Is not in use, code is there for sample but not really in used.
  */
  entity OrderDetails{
 	 id Long

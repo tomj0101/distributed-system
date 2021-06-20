@@ -123,7 +123,7 @@ export const Address = (props: IAddressProps) => {
                   <td>{address.postalCode}</td>
                   <td>{address.city}</td>
                   <td>{address.stateProvince}</td>
-                  <td>{address.user ? address.user.id : ''}</td>
+                  <td>{address.user ? address.user.login : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${address.id}`} color="info" size="sm" data-cy="entityDetailsButton">

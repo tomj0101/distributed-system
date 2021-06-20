@@ -25,6 +25,7 @@ import tech.jhipster.web.util.ResponseUtil;
 
 /**
  * REST controller for managing {@link com.github.tomj0101.ebankv1.ordersystem.domain.OrderDetailsV1}.
+ * This module is not in use
  */
 @RestController
 @RequestMapping("/api")

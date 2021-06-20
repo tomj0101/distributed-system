@@ -10,6 +10,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * Order entity. Detail\n@author Tom\nChanges:\nCreated on 2021-06-19 14:01  - by Tom
+ * This module is not in use
  */
 @ApiModel(description = "Order entity. Detail\n@author Tom\nChanges:\nCreated on 2021-06-19 14:01  - by Tom")
 @Entity
@@ -24,7 +25,6 @@ public class OrderDetailsV1 implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "user_id")
     private Long userId;
 
     @Column(name = "register_date")

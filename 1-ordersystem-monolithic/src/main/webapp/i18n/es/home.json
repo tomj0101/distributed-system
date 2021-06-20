@@ -1,6 +1,6 @@
 {
   "home": {
-    "title": "¡Bienvenido, Java ebank!",
+    "title": "¡Bienvenido, Sistema de Ordenes!",
     "subtitle": "Esta es su página de inicio",
     "logged": {
       "message": "Está conectado como \"{{username}}\"."

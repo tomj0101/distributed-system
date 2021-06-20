@@ -2,9 +2,15 @@
 
 Order management system: Monolithic Enterprise, Java 11+, Spring Boot,JWT Authentication,  PostgreSQL, Redis for Cache, Apache Kafka for Queue, and Elasticsearch for Search-Engine
 
-## Software Installed
+## Software Installed & start all the requirements.
 ```
+PostgreSQL:
+==========================
+cd postgresql-vagrant/
+vagrant up
+
 Redis:
+==========================
 sudo apt install redis-server
 sudo systemctl restart redis.service
 sudo systemctl status redis
@@ -18,6 +24,7 @@ docs: https://www.digitalocean.com/community/tutorials/how-to-install-and-secure
 
 
 Elasticsearch:
+==========================
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 sudo apt-get install apt-transport-https
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
@@ -33,6 +40,7 @@ docs: https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html
 
 
 Kibana GUI
+==========================
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 sudo apt-get install apt-transport-https
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
@@ -45,6 +53,7 @@ docs: https://www.elastic.co/guide/en/kibana/current/deb.html
 
 
 Kafka:
+==========================
 # Start the ZooKeeper service
 # Note: Soon, ZooKeeper will no longer be required by Apache Kafka.
 bin/zookeeper-server-start.sh config/zookeeper.properties
@@ -66,6 +75,15 @@ bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --boots
 #List all the topics
 bin/kafka-topics.sh --list --zookeeper localhost:2181
 docs: https://kafka.apache.org/quickstart
+
+
+#remember to shutdown all the services.
+sudo systemctl stop redis
+sudo systemctl stop elasticsearch
+sudo systemctl stop kibana
+CTL^C kafka & zookeeper
+cd postgresql-vagrant/
+vagrant halt
 ```
 
 ## Development

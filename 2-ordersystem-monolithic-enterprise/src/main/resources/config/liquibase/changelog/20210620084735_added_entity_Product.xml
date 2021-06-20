@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Product.
+    -->
+    <changeSet id="20210620084735-1" author="Tom">
+        <createTable tableName="product" remarks="Product entity.\n@author Tom\nChanges:\nCreated on 2021-06-19 14:01  - by Tom">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="product_images" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="product_images_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="price" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="condition" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="active" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="register_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <!-- needle-liquibase-add-column - will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="product" columnName="register_date" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- needle-liquibase-add-changeset - will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210620084735-1-data" author="Tom" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/product.csv"
+                  separator=";"
+                  tableName="product">
+            <column name="id" type="numeric"/>
+            <column name="name" type="string"/>
+            <column name="description" type="clob"/>
+            <column name="product_images" type="blob"/>
+            <column name="product_images_content_type" type="string"/>
+            <column name="price" type="numeric"/>
+            <column name="condition" type="string"/>
+            <column name="active" type="boolean"/>
+            <column name="register_date" type="${datetimeType}"/>
+            <!-- needle-liquibase-add-loadcolumn - (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

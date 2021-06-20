@@ -1,0 +1,19 @@
+{
+  "home": {
+    "title": "Welcome, Order System V2!",
+    "subtitle": "This is your homepage",
+    "logged": {
+      "message": "You are logged in as user \"{{username}}\"."
+    },
+    "question": "If you have any question on ebankv2:",
+    "link": {
+      "homepage": "ebankv2 homepage",
+      "stackoverflow": "ebankv2 on Stack Overflow",
+      "bugtracker": "ebankv2 bug tracker",
+      "chat": "ebankv2 public chat room",
+      "follow": "follow @ebankv2 on Twitter"
+    },
+    "like": "If you like ebankv2, don't forget to give us a star on",
+    "github": "GitHub"
+  }
+}

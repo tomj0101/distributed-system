@@ -1,0 +1,9 @@
+{
+  "ordersystemv2App": {
+    "Condition": {
+      "null": "",
+      "NEW": "NEW",
+      "USED": "USED"
+    }
+  }
+}

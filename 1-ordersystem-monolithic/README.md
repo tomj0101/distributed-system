@@ -1,6 +1,6 @@
 # Order System
 
-Order management system: Monolithic, Java 11+, Spring Boot, PostgreSQL
+Order management system: Monolithic, Java 11+, Spring Boot, HTTP Session Authentication (stateful, default Spring Security mechanism),  PostgreSQL
 
 ## Development
 

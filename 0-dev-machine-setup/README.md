@@ -1,4 +1,4 @@
-# Dev Machine setup (GNU/Linux Ubuntu 20.04)
+# Dev Machine setup (GNU/Linux Ubuntu 20.04) All-in-One
 The setup of this script is for run in debian version of Linux, GNU/Linux Ubuntu 20.04, if you are macOS User or Windows User you can found the equivalence software in .dmg or .exe with a wizard options.
 
 ###  Included: User software, tools, script, library, Framework, Programming Language 
@@ -428,12 +428,19 @@ sudo apt install haskell-platform -y
 # $ ghci
 
 ==============================================================================
-=============== DATABASE SYSTEMS (SQL, NOSQL, CACHE, QUEUE) =============== 
+=============== DATABASE SYSTEMS (SQL, NOSQL, CACHE, QUEUE, GRAPH) =============== 
 # Note: if your role is just dev, probably a Docker file to run your local database will be enough, but if your Role is DBA or System Admin this database, then yes this section is or you.
 
 # Database client and tools:
 sudo snap install dbeaver-ce # GUI tools for Oracle, SQL Server, MySQL and Other DB
 sudo snap install mysql-workbench-community # Official Admin GUI for MySQL
+# Solvind issue: cannot-connect-mysql-workbench-to-mysql-server
+1. Go to Ubuntu Software.
+2. Search for mysql-workbench and click on Mysql Workbench Community.
+3. Click on Permissions.
+4. Enable Read, add, change, or remove saved password̀s and ssh-keys (if you are also using ssh keys)
+
+
 sudo snap install robomongo # GUI for MongoDB
 sudo snap install redis-desktop-manager # GUI for Redis 
 sudo snap install cass  # GUI for cassandra
@@ -445,15 +452,16 @@ sudo pip3 install pgadmin4 # Web GUI for PostgreSQL, is a little bit slower.
 
 #PostgreSQL Server
 
-#https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
-apt install postgresql -y
-#/usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
-systemctl disable postgresql
-systemctl status postgresql
-systemctl restart postgresql
-#GUI tool: install pgadmin3
-#apt install pgadmin3 
-sudo su postgres
+sudo apt install postgresql postgresql-contrib
+sudo systemctl disable postgresql  #this is a developer machine, I don't want to start postgresql when my OS start
+sudo -i -u postgres
+psql
+SELECT version();
+# make sure to create the user here!, this will be your admin user for playground, this one is NOT the application user.
+CREATE USER dev WITH PASSWORD 'dev' SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION CONNECTION LIMIT 50 VALID UNTIL '2021-12-20 00:00:00';
+\q 
+docs: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
+
 
 #Mysql Server
 
@@ -461,18 +469,26 @@ sudo apt update
 sudo apt install mysql-server
 sudo mysql_secure_installation
 root
-ServerPasswd123J$1  #just sample password
-service mysql restart
-service mysql status
+Dev20202021  #just sample password
+sudo service mysql restart
+sudp service mysql status
+sudo service mysql disable # you don't want to load your dev machine
 sudo mysql -u root
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ServerPasswd123J$1'; 
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Dev20202021'; 
 
-#sql lite
+#sqllite (and the libsqlite3-dev for C++)
+
+sudo apt install sqlite3 libsqlite3-dev
+
+
+# Oracle Database Server
+
+# Download Oracle VM Virtual Appliances or OVA from Oracle website.
 
 
 #sql server
 
-apt install curl -y
+sudo apt install curl -y
 sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
 sudo apt-get update -y
@@ -498,15 +514,15 @@ sudo systemctl status mssql-server
 
 # MongoDB (NoSQL, Document Database) 
 
-mkdir /data &&
-mkdir /data/db &&
-chmod 777 -R /data
-apt install mongodb -y
-#by default comes start
+sudo mkdir /data
+sudo mkdir /data/db
+sudo chmod 777 -R /data
+sudo apt install mongodb -y
+#start by default with the OS 
 #sudo systemctl stop mongodb
 #sudo systemctl start mongodb
-systemctl disable mongodb
-systemctl status mongodb
+sudo systemctl disable mongodb
+sudo systemctl status mongodb
 #GUI: download last version of MongoDB Compass
 
 #cassandra (Wide-Column Database)
@@ -514,7 +530,7 @@ systemctl status mongodb
 echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update	
-apt install cassandra
+sudo apt install cassandra
 #service cassandra start
 #service cassandra stop
 systemctl disable cassandra
@@ -522,26 +538,96 @@ systemctl status cassandra
 #cqlsh localhost
 
 # Redis (Cache, in-memory Key-Value Store)
-sudo apt install redis-server -y
+
+sudo apt install redis-server
 sudo systemctl restart redis.service
-sudo systemctl status redis
-#redis install docs: https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-20-04
-
-
-# test redis 
+sudo systemctl status redis-server
+sudo systemctl disable redis-server
 redis-cli
-ping
-set test "It's working!"
-get test
-exit
+>ping
+>set test "It's working!"
+>get test
+# list all the key create in REDIS
+KEYS *
+# know the type of a key
+type test
+docs: https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04
+
 
 # Apache Kafka (Queue)
 # kafka install doc: https://kafka.apache.org/quickstart
+# Start the ZooKeeper service
+# Note: Soon, ZooKeeper will no longer be required by Apache Kafka.
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+# Start the Kafka broker service
+bin/kafka-server-start.sh config/server.properties
+
+#create topics
+bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+
+#write some event
+bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
+This is my first event
+This is my second event
+
+#read the event
+bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+
+#List all the topics
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+docs: https://kafka.apache.org/quickstart
+
+
 
 # Elasticsearch (full-text Search Engine)
 # Install ELK Stack: Elasticsearch + Kibana + Logstash.
-# Elasticsarch is a Searching database, Kibana is a GUI to see the data in Elastisearch and Logstash is uses like ETL tools.
-#https://www.howtoforge.com/tutorial/ubuntu-elastic-stack/
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get update && sudo apt-get install elasticsearch
+
+sudo systemctl restart elasticsearch.service
+sudo systemctl status elasticsearch
+http://localhost:9200
+
+# List all the index
+curl -XGET 'http://localhost:9200/_cat/indices'
+docs: https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html
+
+
+# Kibana GUI
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get update && sudo apt-get install kibana
+
+sudo systemctl restart kibana.service
+sudo systemctl status kibana
+http://localhost:5601
+docs: https://www.elastic.co/guide/en/kibana/current/deb.html
+
+
+
+# Neo4J (Graph Database)
+sudo wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
+sudo echo 'deb https://debian.neo4j.org/repo stable/' | sudo tee -a /etc/apt/sources.list.d/neo4j.list
+sudo apt-get update
+sudo apt install neo4j
+neo4j --version
+sudo nano /etc/neo4j/neo4j.conf
+dbms.security.auth_enabled=false
+
+sudo nano /etc/neo4j/neo4j.conf
+dbms.connectors.default_listen_address=0.0.0.0
+
+# The default password for the neo4j user is neo4j
+sudo systemctl restart neo4j
+sudo systemctl disable neo4j
+
+Open: http://localhost:7474/
+docs: https://aster.cloud/2019/07/16/how-to-neo4j-installation-and-configuration-in-ubuntu/
+
 
 ==============================================================================
 =============== DEVOPS + CLOUD ADMIN + LINUX SYSADMIN =============== 

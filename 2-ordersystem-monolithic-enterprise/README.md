@@ -48,7 +48,6 @@ Redis:
 ==========================
 sudo apt install redis-server
 sudo systemctl restart redis.service
-sudo systemctl status redis
 sudo systemctl status redis-server
 sudo systemctl disable redis-server
 redis-cli

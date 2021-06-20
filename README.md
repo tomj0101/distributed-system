@@ -3,11 +3,11 @@ This Distributed system repository is the quick Onramp for people that want to u
 
 # Monolithic application
 ![Monolithic Logo](/docs/Monolithic.png)
-[monolithic-patterns](https://microservices.io/patterns/monolithic.html)
+- [monolithic-patterns](https://microservices.io/patterns/monolithic.html)
 
 # Microservices & Distributed System
-[microservices-patterns](https://microservices.io/patterns/microservices.html)
-[Container Orchestration-Kubernetes ](https://kubernetes.io/)
+- [microservices-patterns](https://microservices.io/patterns/microservices.html)
+- [Container Orchestration-Kubernetes ](https://kubernetes.io/)
 
 # Clarification #1
 distributed-system ≠ high-performance computing(HPC): In some text books talk about this two terms like the same, but in this case let talk about like complete differents topics.

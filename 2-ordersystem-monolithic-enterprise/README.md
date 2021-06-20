@@ -2,24 +2,63 @@
 
 Order management system: Monolithic Enterprise, Java 11+, Spring Boot,JWT Authentication,  PostgreSQL, Redis for Cache, Apache Kafka for Queue, and Elasticsearch for Search-Engine
 
+
+### Start & stop the pre-install requirements
+```
+# start
+sudo systemctl start redis-server
+sudo systemctl start elasticsearch  # Make sure to tunning for less memory consumming (+Bonus)
+sudo systemctl start kibana
+sudo systemctl start postgresql
+# kafka
+cd ~/Documents/Software/kafka_2.13-2.8.0
+bin/zookeeper-server-start.sh config/zookeeper.properties #start zookeeper
+bin/kafka-server-start.sh config/server.properties #start kafka
+
+
+#stop
+sudo systemctl stop redis-server
+sudo systemctl stop elasticsearch  
+sudo systemctl stop kibana
+sudo systemctl stop postgresql
+
+```
+
 ## Software Installed & start all the requirements.
 ```
-PostgreSQL:
+PostgreSQL VM or Installed:
 ==========================
 cd postgresql-vagrant/
 vagrant up
+
+---
+sudo apt install postgresql postgresql-contrib
+sudo systemctl disable postgresql  #this is a developer machine, I don't want to start postgresql when my OS start
+sudo -i -u postgres
+psql
+SELECT version();
+# make sure to create the user here!, this will be your admin user for playground, this one is NOT the application user.
+CREATE USER dev WITH PASSWORD 'dev' SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION CONNECTION LIMIT 50 VALID UNTIL '2021-12-20 00:00:00';
+\q 
+docs: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
+
+
 
 Redis:
 ==========================
 sudo apt install redis-server
 sudo systemctl restart redis.service
 sudo systemctl status redis
+sudo systemctl status redis-server
+sudo systemctl disable redis-server
 redis-cli
 >ping
 >set test "It's working!"
 >get test
 # list all the key create in REDIS
 KEYS *
+# know the type of a key
+type test
 docs: https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04
 
 
@@ -78,7 +117,7 @@ docs: https://kafka.apache.org/quickstart
 
 
 #remember to shutdown all the services.
-sudo systemctl stop redis
+sudo systemctl stop redis-server
 sudo systemctl stop elasticsearch
 sudo systemctl stop kibana
 CTL^C kafka & zookeeper
@@ -300,6 +339,14 @@ CONNECTION LIMIT=-1;
 COMMENT ON DATABASE ebankv2
 IS 'Database for Version 1-Monolithic version';
 
+```
+
+### (+Bonus) Tunning Elasticsearch for use less memory (JVM Options & Heap size)
+```
+IMPORTANT NOTE: This tunning is for your developer machine, DON't do that in production
+sudo vim /etc/elasticsearch/jvm.options
+-Xmx2g
+docs: https://www.elastic.co/guide/en/elasticsearch/reference/6.8/jvm-options.html
 ```
 
 

@@ -30,9 +30,9 @@ distributed-system ≠ high-performance computing(HPC): In some text books talk 
 The goals of this repo is have a Professional development setup ready, is not 101 Java, not 101 Spring Boot, not 101 Microservices, not 101 Kubernetes, not 101 ReactJS, not 101 C++, if you never take a training in this technology, I highly recomend go get the fudamentals knowlaged, do small project like todo-list and then return to this repo.
 
 ### Author
-Tom
-Jun 21, 2021 · 5 min read - 5 hours labs for play around the 3 projects.
-Follow me on Twitter: https://twitter.com/tomj0101 Github: https://github.com/tomj0101
+- Tom
+- Jun 21, 2021 · 5 min read - 5 hours labs for play around the 3 projects.
+- Follow me on Twitter: https://twitter.com/tomj0101 Github: https://github.com/tomj0101
 
 
 

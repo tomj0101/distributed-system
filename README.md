@@ -3,17 +3,18 @@ This Distributed system repository is the quick Onramp for people that want to u
 
 # Monolithic application
 All-In-One, all modules are tightly coupled , you can't modify one without possibly affecting another.
-![Monolithic Logo](/docs/Monolithic.png)
+![Monolithic Logo](/docs/1-Monolithic.png)
 - [monolithic-patterns](https://microservices.io/patterns/monolithic.html)
 
 # Monolithic Enterprise application
 I called this one monolithic Enterprise, maybe is not the right name, but I see very commons in monilothic application for ingrease the Write and Read capacity, company decide todo add Cache Layer like Redis for speed the Reading, Queue System like Kafka for spead the writing, and Search engine database like Elasticsearch.
 
 Hint:  Distributed System using Microservices you can just scale a particar services to increase the Read/Write capacity with just a simple ' scale --replicas=3 ', also Cache, Queue and Search Engine are used in big system, not always the solution is add it a new complexity layer! try to solve the problem firts from the best system design point of view, then choose the technology.
-![Monolithic Logo](/docs/Monolithic-enterprise.png)
+![Monolithic enterprise Logo](/docs/2-Monolithic-enterprise.png)
 - [monolithic-patterns](https://microservices.io/patterns/monolithic.html)
 
 # Microservices & Distributed System
+![Microservices Logo](/docs/3-microservices.png)
 - [microservices-patterns](https://microservices.io/patterns/microservices.html)
 - [Container Orchestration-Kubernetes ](https://kubernetes.io/)
 

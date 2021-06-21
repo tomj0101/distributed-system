@@ -31,7 +31,7 @@ The goals of this repo is have a Professional development setup ready, is not 10
 
 ### Author
 - Tom
-- Jun 21, 2021 · 5 min read - 5 hours labs for play around the 3 projects.
+- Jun 21, 2021 · 5 min read - 5 hours labs for play around with the 3 projects.
 - Follow me on Twitter: https://twitter.com/tomj0101 Github: https://github.com/tomj0101
 
 

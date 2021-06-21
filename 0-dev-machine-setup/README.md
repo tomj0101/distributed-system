@@ -476,7 +476,7 @@ sudo service mysql disable # you don't want to load your dev machine
 sudo mysql -u root
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Dev20202021'; 
 
-#sqllite (and the libsqlite3-dev for C++)
+#sqlite (and the libsqlite3-dev for C++)
 
 sudo apt install sqlite3 libsqlite3-dev
 
@@ -590,6 +590,15 @@ sudo apt-get update && sudo apt-get install elasticsearch
 sudo systemctl restart elasticsearch.service
 sudo systemctl status elasticsearch
 http://localhost:9200
+
+### (+Bonus) Tunning Elasticsearch for use less memory (JVM Options & Heap size)
+
+IMPORTANT NOTE: This tunning is for your developer machine, DON't do that in production
+sudo vim /etc/elasticsearch/jvm.options
+-Xmx2g
+docs: https://www.elastic.co/guide/en/elasticsearch/reference/6.8/jvm-options.html
+
+
 
 # List all the index
 curl -XGET 'http://localhost:9200/_cat/indices'

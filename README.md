@@ -14,7 +14,8 @@ Hint:  Distributed System using Microservices you can just scale a particar serv
 - [monolithic-patterns](https://microservices.io/patterns/monolithic.html)
 
 # Microservices & Distributed System
-![Microservices Logo](/docs/3-microservices.png)
+In this full labs series you can say "Wow finally we arrived to the distributed system", but at least in the currenty year 2021,  when this articule was write, we still have a lot monolythic application in the biggers well-know Company, also the process to move to microservices looks far from some Business area & Technical department, but try to understand well the Monolithics application, what is the current advantage, disadvantage, understand also what value we can add to the business if we change to microservices architecture and distributed system. for example: we be able to develop and delivery features faster, do a onboarding faster and the new technical members, this migration will decrease the learn curve progressive working a particular services and not the whole company product.
+![Microservices Logo](/docs/3-microservices-and-distributed-system.png)
 - [microservices-patterns](https://microservices.io/patterns/microservices.html)
 - [Container Orchestration-Kubernetes ](https://kubernetes.io/)
 
@@ -27,3 +28,13 @@ distributed-system ≠ high-performance computing(HPC): In some text books talk 
 
 # Clarification #2 
 The goals of this repo is have a Professional development setup ready, is not 101 Java, not 101 Spring Boot, not 101 Microservices, not 101 Kubernetes, not 101 ReactJS, not 101 C++, if you never take a training in this technology, I highly recomend go get the fudamentals knowlaged, do small project like todo-list and then return to this repo.
+
+### Author
+Tom
+Jun 21, 2021 · 5 min read - 5 hours labs for play around the 3 projects.
+Follow me on Twitter: https://twitter.com/tomj0101 Github: https://github.com/tomj0101
+
+
+
+
+

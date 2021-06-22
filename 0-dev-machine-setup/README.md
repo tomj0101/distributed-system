@@ -567,7 +567,7 @@ select * from emp;
 
 
 #tunning cassandra to use less memory in dev machine 
-sudo nano /etc/cassandra/cassandra-env-.sh
+sudo nano /etc/cassandra/cassandra-env.sh
 MAX_HEAP_SIZE="256M" #1G
 HEAP_NEWSIZE="128M"
 

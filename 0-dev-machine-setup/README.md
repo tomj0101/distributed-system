@@ -529,6 +529,11 @@ sudo systemctl status mongodb
 
 echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+--- OR ---
+sudo apt install apt-transport-https
+wget -q -O - https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+sudo sh -c 'echo "deb http://www.apache.org/dist/cassandra/debian 311x main" > /etc/apt/sources.list.d/cassandra.list'
+
 sudo apt-get update	
 sudo apt install cassandra
 #service cassandra start

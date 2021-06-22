@@ -533,9 +533,39 @@ sudo apt-get update
 sudo apt install cassandra
 #service cassandra start
 #service cassandra stop
-systemctl disable cassandra
-systemctl status cassandra
-#cqlsh localhost
+sudo systemctl start cassandra
+sudo systemctl stop cassandra
+sudo systemctl disable cassandra
+sudo systemctl status cassandra
+#cqlsh localhost 9042
+cqlsh -u cassandra -p cassandra  
+cqlsh -u root_user -p cassandra # login as superuser.
+cqlsh> SELECT cql_version FROM system.local;
+
+#create a cassandra keyspace:
+CREATE KEYSPACE ebank_data
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+
+# list keyspaces
+SELECT * FROM system_schema.keyspaces;
+
+USE ebank_data;
+INSERT INTO emp(emp_id, emp_city,emp_name,emp_phone,emp_sal) VALUES (1, 'LA','Tom',8889996666,1234);
+CREATE TABLE emp(
+   emp_id int PRIMARY KEY,
+   emp_name text,
+   emp_city text,
+   emp_sal varint,
+   emp_phone varint
+   );
+select * from emp;
+
+
+#tunning cassandra to use less memory in dev machine 
+sudo nano /etc/cassandra/cassandra-env-.sh
+MAX_HEAP_SIZE="256M" #1G
+HEAP_NEWSIZE="128M"
+
 
 # Redis (Cache, in-memory Key-Value Store)
 

@@ -1,0 +1,23 @@
+/**
+ * Address entity.
+ * @author Tom
+ * Changes:
+ * Created on 2021-06-21 17:31  - by Tom
+ * http port: 8081
+ * com.github.tomj0101.ebankv1.ordersystemv3.address
+ */
+entity Address {
+    id Long
+	streetAddress String minlength(1) maxlength(500) required
+	postalCode Integer required
+	city String minlength(1) maxlength(200) required
+	stateProvince String minlength(1) maxlength(200) required
+
+}
+
+
+/**
+ * Paginate and Service
+ */
+paginate Address with pagination
+service all with serviceImpl

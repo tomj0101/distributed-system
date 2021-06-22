@@ -38,3 +38,50 @@ source addressapienv/bin/activate
 pip install wheel
 deactivate
 ```
+
+## Cassandra Initial configuration
+```
+cqlsh
+
+#create a cassandra keyspace:
+CREATE KEYSPACE ebank_data
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+
+# list keyspaces
+SELECT * FROM system_schema.keyspaces;
+
+USE ebank_data;
+
+CREATE TABLE address(
+   id uuid PRIMARY KEY,
+   streetAddress text,
+   postalCode varint,
+   city text,
+   stateProvince text,
+   country text,
+   created timestamp,
+   gpsLatLong tuple<text, text>
+);
+
+// gpsLatLong list<int> // A list of integers [34.0207289, -118.6926043]
+// gpsLatLong tuple<text, text> // A list of integers ('34.0207289', '-118.6926043')
+phones map<text, phone>
+
+select * from address;
+
+INSERT INTO address(id, streetAddress, postalCode, city, stateProvince, country, created, gpsLatLong) 
+VALUES (
+    uuid(),
+    '111 Stree',
+    05896,
+    'LA',
+    'CA',
+    'USA',
+    dateof(now()),
+    ('34.0207289', '-118.6926043')
+);
+
+select * from address;
+
+#Note: in cassandra system.local is like dual in oracle
+```

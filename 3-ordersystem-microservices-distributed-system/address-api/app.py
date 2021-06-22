@@ -46,7 +46,7 @@ def put_and_patch_addresses(id):
 @app.route("/api/addresses", methods=["GET"])
 def get_all_addresses():
     address = address_service.all()
-    return address
+    return jsonify(address)
 
 @app.route("/api/addresses/<id>", methods=["GET"])
 def get_addresses_by_id(id):

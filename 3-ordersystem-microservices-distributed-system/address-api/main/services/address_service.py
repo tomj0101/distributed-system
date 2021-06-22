@@ -18,7 +18,7 @@ class AddressService():
         # Creating a parent class ref to access parent class methods.
         self.parentClassRef = super(AddressService, self)
     
-    def all():
+    def all(self):
         cloud_config = {
             'secure_connect_bundle': '/path/to/secure-connect-dbname.zip'
         }
@@ -28,6 +28,13 @@ class AddressService():
         session.set_keyspace('ebank_data')
         # or you can do this instead
         session.execute('USE ebank_data')
-        rows = session.execute('SELECT  id, streetAddress, postalCode, city, stateProvince FROM address')
+        rows = session.execute('SELECT  id, streetaddress, postalcode, city, stateprovince, country, created, gpslatlong FROM address')
+        
+        addressList = []
         for user_row in rows:
-            print (user_row.id, user_row.streetAddress, user_row.postalCode, user_row.city, user_row.stateProvince) 
+            #print ("id, streetaddress, postalcode, city, stateprovince, country, created, gpslatlong")
+            #print (user_row.id, user_row.streetaddress, user_row.postalcode, user_row.city, user_row.stateprovince, user_row.country, user_row.created, user_row.gpslatlong)
+            addressList.append({"id": user_row.id, "streetaddress": user_row.streetaddress, "postalcode": user_row.postalcode, "city": user_row.city, "stateprovince": user_row.stateprovince, "country": user_row.country, "created": user_row.created, "gpslatlong": user_row.gpslatlong})
+        #addressTuple = tuple(addressList)
+        #print(addressTuple)
+        return addressList

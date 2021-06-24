@@ -16,6 +16,12 @@ bin/zookeeper-server-start.sh config/zookeeper.properties #start zookeeper
 bin/kafka-server-start.sh config/server.properties #start kafka
 
 
+#status
+sudo systemctl status redis-server
+sudo systemctl status kibana
+sudo systemctl status postgresql
+sudo systemctl status elasticsearch  # elasticsearch was moved to the end for run all command in one copy/paste.
+
 #stop
 sudo systemctl stop redis-server
 sudo systemctl stop elasticsearch  
@@ -379,3 +385,7 @@ docs: https://www.elastic.co/guide/en/elasticsearch/reference/6.8/jvm-options.ht
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
 [online HTML editor]: https://html-online.com/editor/
+
+### This is how look when you run the monolithic
+![Monolithic-Enterprise-Screenshot-1](docs/screenshot/Monolithic-Enterprise-Screenshot-1.png)
+![Monolithic-Enterprise-Screenshot-2](docs/screenshot/Monolithic-Enterprise-Screenshot-2.png)

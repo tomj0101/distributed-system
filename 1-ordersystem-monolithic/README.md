@@ -122,7 +122,7 @@ If you need to re-run the Sonar phase, please be sure to specify at least the `i
 
 For more information, refer to the [Code quality page][].
 
-## Using Vagrant to simplify development (optional)
+## Using Vagrant to simplify development and run postgreSQL on a VM(optional)
 ```
 vagrant up
 
@@ -147,6 +147,16 @@ COMMENT ON DATABASE ebankv1
 IS 'Database for Version 1-Monolithic version';
 
 ```
+
+## You can install and run postgreSQL if you want
+```
+Installation here: distributed-system/0-dev-machine-setup/README.md
+
+sudo systemctl status postgresql # check the service status if is not active, then start the service
+sudo systemctl start postgresql  # start postgresql service 
+
+```
+
 [Tech References]
 
 [Java 11]: https://docs.oracle.com/javase/tutorial/
@@ -174,3 +184,7 @@ IS 'Database for Version 1-Monolithic version';
 [definitelytyped]: https://definitelytyped.org/
 [online HTML editor]: https://html-online.com/editor/
 
+### This is how look when you run the monolithic
+![Monolithic-Screenshot-1](/docs/screenshot/Monolithic-Screenshot-1.png)
+![Monolithic-Screenshot-2](/docs/screenshot/Monolithic-Screenshot-2.png)
+![Monolithic-Screenshot-3](/docs/screenshot/Monolithic-Screenshot-3.png)

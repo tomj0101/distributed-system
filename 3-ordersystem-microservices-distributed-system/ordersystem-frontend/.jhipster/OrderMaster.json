@@ -1,0 +1,45 @@
+{
+  "microservicePath": "/home/developer/Documents/git-repos/mock-dont-upload/3-ordersystem-microservices-distributed-system/order-api",
+  "name": "OrderMaster",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "paymentMethod",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength", "required", "pattern"],
+      "fieldValidateRulesMinlength": "1",
+      "fieldValidateRulesMaxlength": "500",
+      "fieldValidateRulesPattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    },
+    {
+      "fieldName": "registerDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [],
+  "javadoc": "Order entity. Master\\n@author Tom\\nChanges:\\nCreated on 2021-06-19 14:01  - by Tom",
+  "entityTableName": "order_master",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "orderapi",
+  "clientRootFolder": "orderapi",
+  "databaseType": "mongodb",
+  "changelogDate": "20210623002434"
+}

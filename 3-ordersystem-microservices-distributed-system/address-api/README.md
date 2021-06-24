@@ -7,7 +7,8 @@ To start your application in the dev profile, run:
 
 ```
 flask run
-Open http://localhost:5000/api
+open http://localhost:5000/api
+open http://localhost:8081/api/addresses
 ```
 
 ## Run in Prod mode
@@ -17,11 +18,11 @@ uWSGI is a fast application server written in C. It is very configurable which m
 
 Running uWSGI HTTP Router:
 ```
-uwsgi --socket 0.0.0.0:5000 --protocol=http -w wsgi:app
+uwsgi --socket 0.0.0.0:8081 --protocol=http -w wsgi:app
 --- OR ---
 ./entrypoint.sh
 
-Open http://localhost:5000/api
+Open http://localhost:8081/api
 ```
 
 ### Python3 init install for prod server

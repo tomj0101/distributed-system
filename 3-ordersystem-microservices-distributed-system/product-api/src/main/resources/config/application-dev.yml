@@ -1,0 +1,119 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+#
+# More information on profiles: https://github.com/tomj0101/distributed-system/profiles/
+# More information on configuration properties: https://github.com/tomj0101/distributed-system/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+logging:
+  level:
+    ROOT: DEBUG
+    tech.jhipster: DEBUG
+    org.hibernate.SQL: DEBUG
+    com.github.tomj0101.ebankv1.ordersystemv3.product: DEBUG
+
+management:
+  health:
+    elasticsearch:
+      enabled: false
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-exclude: static/**
+    livereload:
+      enabled: false # we use Webpack dev server + BrowserSync for livereload
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/productapi
+    username: productapi
+    password:
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  jpa:
+    database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
+  data:
+  elasticsearch:
+    rest:
+      uris: http://localhost:9200
+  liquibase:
+    # Remove 'faker' if you do not want the sample data to be loaded automatically
+    contexts: dev, faker
+  messages:
+    cache-duration: PT1S # 1 second, see the ISO 8601 standard
+  thymeleaf:
+    cache: false
+  sleuth:
+    sampler:
+      probability: 1 # report 100% of traces
+  zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
+    base-url: http://localhost:9411
+    enabled: false
+    locator:
+      discovery:
+        enabled: true
+
+server:
+  port: 8083
+
+# ===================================================================
+# specific properties
+#
+# Full reference is available at: https://github.com/tomj0101/distributed-system/common-application-properties/
+# ===================================================================
+
+jhipster:
+  cache: # Cache configuration
+    redis: # Redis configuration
+      expiration: 3600 # By default objects stay 1 hour (in seconds) in the cache
+      server: redis://localhost:6379
+      cluster: false
+      # server: redis://localhost:6379,redis://localhost:16379,redis://localhost:26379
+      # cluster: true
+  # CORS is disabled by default on microservices, as you should access them through a gateway.
+  # If you want to enable it, please uncomment the configuration below.
+  # cors:
+  #   allowed-origins: "http://localhost:9000"
+  #   allowed-methods: "*"
+  #   allowed-headers: "*"
+  #   exposed-headers: "Authorization,Link,X-Total-Count"
+  #   allow-credentials: true
+  #   max-age: 1800
+  security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+        base64-secret: NGZmNTlmNTM1YmQxNjg4OTM2OWU0YWNmNDk2YjI1MThkNWQyODdhZGNmNDkxNDdhYzFkMmZiYTBmYzJlNDJmMjExM2M3MDAyYTlhMzU1OTNkMGZjMzYzMzFmODQ2Y2RkZjc0OWY4ZDg2ZjVlNTk4OTZiM2RiYzA5N2NiNGZjZTU=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000
+  logging:
+    use-json-format: false # By default, logs are not in Json format
+    logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the Properties above
+#
+# More documentation is available at:
+# https://github.com/tomj0101/distributed-system/common-application-properties/
+# ===================================================================
+
+# application:

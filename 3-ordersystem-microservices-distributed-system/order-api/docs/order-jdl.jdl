@@ -1,51 +1,4 @@
 /**
- * Status entity
- * @author Tom
- * Changes:
- * Created on 2021-06-19 14:01  - by Tom
- */
-entity Status {
-    id Long
-	name String  minlength(1) maxlength(500) required
-	description String minlength(1) maxlength(500) required
-	registerDate Instant
-}
-
-/**
- * Address entity.
- * @author Tom
- * Changes:
- * Created on 2021-06-19 14:01  - by Tom
- */
-entity Address {
-    id Long
-	streetAddress String minlength(1) maxlength(500) required
-	postalCode Integer required
-	city String minlength(1) maxlength(200) required
-	stateProvince String minlength(1) maxlength(200) required
-
-}
-
-
-/**
- * Product entity.
- * @author Tom
- * Changes:
- * Created on 2021-06-19 14:01  - by Tom
- */
-entity Product {
-    id Long
-	name String minlength(1) maxlength(250) required
-	description TextBlob
-	productImages ImageBlob
-    price Double
-    condition Condition
-	active Boolean
-    registerDate Instant
-}
-
-
-/**
  * Order entity. Master
  * @author Tom
  * Changes:
@@ -58,43 +11,13 @@ entity OrderMaster {
 	//wishlistId UUID
 	email String minlength(1) maxlength(500) required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
     registerDate Instant
-
-}
-
-
-/**
- * Condition enum.
- * @author Tom
- * Changes:
- * Created on 2021-06-19 14:01  - by Tom 
- */
-enum Condition {
-    NEW, USED
-}
-
-
-/**
- * Relationship
- */
-relationship OneToOne {
-	//### OrderMaster ####
-	OrderMaster{address(streetAddress)} to Address
-    OrderMaster{status(name)} to Status
-
 	
-	//### Address ####
-	Address{User} to User
-}
 
-
-relationship ManyToOne{
-	OrderMaster to User //this is the same as OrderMaster{User} to User
 }
 
 
 /**
  * Paginate and Service
  */
-paginate Product with infinite-scroll
-paginate Address, OrderMaster with pagination
+paginate OrderMaster with pagination
 service all with serviceImpl

@@ -72,26 +72,6 @@ enum Condition {
     NEW, USED
 }
 
-
-/**
- * Relationship
- */
-relationship OneToOne {
-	//### OrderMaster ####
-	OrderMaster{address(streetAddress)} to Address
-    OrderMaster{status(name)} to Status
-
-	
-	//### Address ####
-	Address{User} to User
-}
-
-
-relationship ManyToOne{
-	OrderMaster to User //this is the same as OrderMaster{User} to User
-}
-
-
 /**
  * Paginate and Service
  */

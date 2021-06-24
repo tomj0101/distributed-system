@@ -1,0 +1,102 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration is used for unit/integration tests.
+#
+# More information on profiles: https://github.com/tomj0101/distributed-system/profiles/
+# More information on configuration properties: https://github.com/tomj0101/distributed-system/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+mongock:
+  change-logs-scan-package:
+    - com.github.tomj0101.ebankv1.ordersystemv3.order.config.dbmigrations
+  mongo-db:
+    read-concern: local
+    write-concern:
+      journal: false
+
+spring:
+  application:
+    name: orderapi
+  jackson:
+    serialization:
+      write-durations-as-timestamps: false
+  data:
+    mongodb:
+      host: localhost
+      port: 0
+      database: orderapi
+  mail:
+    host: localhost
+  main:
+    allow-bean-definition-overriding: true
+  messages:
+    basename: i18n/messages
+  task:
+    execution:
+      thread-name-prefix: orderapi-task-
+      pool:
+        core-size: 1
+        max-size: 50
+        queue-capacity: 10000
+    scheduling:
+      thread-name-prefix: orderapi-scheduling-
+      pool:
+        size: 1
+  thymeleaf:
+    mode: HTML
+
+server:
+  port: 10344
+  address: localhost
+
+# ===================================================================
+# specific properties
+#
+# Full reference is available at: https://github.com/tomj0101/distributed-system/common-application-properties/
+# ===================================================================
+
+jhipster:
+  clientApp:
+    name: 'orderapiApp'
+  logging:
+    # To test json console appender
+    use-json-format: false
+    logstash:
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+  security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
+        base64-secret: NTJhNDgyOGQ5ZDE5YTg0ZDRlMDZiZjNjMjdlYjc3ZGQxODkwMzA2MmNkMTE2ZTUyYWY4ZjFhYjg0NmM5MTdmMmI5YTkxOGE3YjIwZTNkZTVhNTU3NGE0MjMxNjgxN2I4Y2U0ZWVlNTNkZDRkOWQyZTdmM2JhOWZiMTA1MTFlYTA=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+    key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    group.id: orderapi
+    auto.offset.reset: earliest
+  producer:
+    key.serializer: org.apache.kafka.common.serialization.StringSerializer
+    value.serializer: org.apache.kafka.common.serialization.StringSerializer
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the Properties above
+#
+# More documentation is available at:
+# https://github.com/tomj0101/distributed-system/common-application-properties/
+# ===================================================================
+
+# application:

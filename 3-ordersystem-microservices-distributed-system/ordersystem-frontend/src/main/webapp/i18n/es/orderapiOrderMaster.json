@@ -1,0 +1,32 @@
+{
+  "ordersystemfrontendApp": {
+    "orderapiOrderMaster": {
+      "home": {
+        "title": "Order Masters",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Order Master",
+        "createOrEditLabel": "Crear o editar Order Master",
+        "search": "Buscar Order Master",
+        "notFound": "Ningún Order Masters encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Order Master {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Master"
+      },
+      "id": "Id",
+      "paymentMethod": "Payment Method",
+      "total": "Total",
+      "email": "Email",
+      "registerDate": "Register Date"
+    }
+  },
+  "orderapiApp": {
+    "orderapiOrderMaster": {
+      "created": "Un nuevo Order Master ha sido creado con el identificador {{ param }}",
+      "updated": "Un Order Master ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Order Master ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration is used for unit/integration tests.
+#
+# More information on profiles: https://github.com/tomj0101/distributed-system/profiles/
+# More information on configuration properties: https://github.com/tomj0101/distributed-system/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+mongock:
+  change-logs-scan-package:
+    - com.github.tomj0101.ebankv1.ordersystemv3.ordersystemfrontend.config.dbmigrations
+  mongo-db:
+    read-concern: local
+    write-concern:
+      journal: false
+
+spring:
+  application:
+    name: ordersystemfrontend
+  autoconfigure:
+    exclude:
+      - org.springframework.cloud.gateway.config.GatewayMetricsAutoConfiguration
+  jackson:
+    serialization:
+      write-durations-as-timestamps: false
+  data:
+    mongodb:
+      host: localhost
+      port: 0
+      database: ordersystemfrontend
+  mail:
+    host: localhost
+  main:
+    allow-bean-definition-overriding: true
+  messages:
+    basename: i18n/messages
+  task:
+    execution:
+      thread-name-prefix: ordersystemfrontend-task-
+      pool:
+        core-size: 1
+        max-size: 50
+        queue-capacity: 10000
+    scheduling:
+      thread-name-prefix: ordersystemfrontend-scheduling-
+      pool:
+        size: 1
+  thymeleaf:
+    mode: HTML
+
+server:
+  port: 10344
+  address: localhost
+
+# ===================================================================
+# specific properties
+#
+# Full reference is available at: https://github.com/tomj0101/distributed-system/common-application-properties/
+# ===================================================================
+
+jhipster:
+  clientApp:
+    name: 'ordersystemfrontendApp'
+  logging:
+    # To test json console appender
+    use-json-format: false
+    logstash:
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+  mail:
+    from: test@localhost
+    base-url: http://127.0.0.1:8080
+  security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
+        base64-secret: MTZjMjg3MjIyZDM4NzBjNjM2OGY4MzI3YTdiYWM5MzBhZDQyOTI0MTFmMGZkZmU3YzQyMWEzMTg4MzM1ODQ5MTQyMjFhNTJiMGNmZmYzY2FlNDM4ZGQ2MzgzZjIzNTAzOWI2MzBmYjYzZjU0MWRlYmRlMDZiZTVmYTQzNzU0MWY=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+    key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    group.id: ordersystemfrontend
+    auto.offset.reset: earliest
+  producer:
+    key.serializer: org.apache.kafka.common.serialization.StringSerializer
+    value.serializer: org.apache.kafka.common.serialization.StringSerializer
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the Properties above
+#
+# More documentation is available at:
+# https://github.com/tomj0101/distributed-system/common-application-properties/
+# ===================================================================
+
+# application:

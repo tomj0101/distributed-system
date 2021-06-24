@@ -1,0 +1,20 @@
+                                                                                            
+                                                                                            
+                  BBBBBBBBBBBBBBBBB                                      kkkkkkkk           
+                  B::::::::::::::::B                                     k::::::k           
+                  B::::::BBBBBB:::::B                                    k::::::k           
+                  BB:::::B     B:::::B                                   k::::::k           
+    eeeeeeeeeeee    B::::B     B:::::B  aaaaaaaaaaaaa  nnnn  nnnnnnnn     k:::::k    kkkkkkk
+  ee::::::::::::ee  B::::B     B:::::B  a::::::::::::a n:::nn::::::::nn   k:::::k   k:::::k 
+ e::::::eeeee:::::eeB::::BBBBBB:::::B   aaaaaaaaa:::::an::::::::::::::nn  k:::::k  k:::::k  
+e::::::e     e:::::eB:::::::::::::BB             a::::ann:::::::::::::::n k:::::k k:::::k   
+e:::::::eeeee::::::eB::::BBBBBB:::::B     aaaaaaa:::::a  n:::::nnnn:::::n k::::::k:::::k    
+e:::::::::::::::::e B::::B     B:::::B  aa::::::::::::a  n::::n    n::::n k:::::::::::k     
+e::::::eeeeeeeeeee  B::::B     B:::::B a::::aaaa::::::a  n::::n    n::::n k:::::::::::k     
+e:::::::e           B::::B     B:::::Ba::::a    a:::::a  n::::n    n::::n k::::::k:::::k    
+e::::::::e        BB:::::BBBBBB::::::Ba::::a    a:::::a  n::::n    n::::nk::::::k k:::::k   
+ e::::::::eeeeeeeeB:::::::::::::::::B a:::::aaaa::::::a  n::::n    n::::nk::::::k  k:::::k  
+  ee:::::::::::::eB::::::::::::::::B   a::::::::::aa:::a n::::n    n::::nk::::::k   k:::::k 
+    eeeeeeeeeeeeeeBBBBBBBBBBBBBBBBB     aaaaaaaaaa  aaaa nnnnnn    nnnnnnkkkkkkkk    kkkkkkk
+                                                                                            
+${AnsiColor.BRIGHT_BLUE}::  ordersystem-frontend

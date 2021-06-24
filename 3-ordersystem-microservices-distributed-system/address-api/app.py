@@ -8,8 +8,6 @@ REST Method:
     GET     /api/addresses/:id
     DELETE  /api/addresses/:id
     GET  /api/_search/addresses?query=:query
-
-    flask run
 '''
 # -*- coding: utf-8 -*-
 from flask import Flask, Blueprint, jsonify, request

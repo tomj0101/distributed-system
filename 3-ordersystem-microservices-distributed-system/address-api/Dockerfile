@@ -18,7 +18,7 @@ RUN chmod 777 /usr/src/app/entrypoint.sh
 # Install the Python libraries
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 5000
+EXPOSE 8081
 
 # run server
 CMD ["./entrypoint.sh"]

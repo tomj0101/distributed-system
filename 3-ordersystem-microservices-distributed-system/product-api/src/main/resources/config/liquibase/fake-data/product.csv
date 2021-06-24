@@ -1,0 +1,11 @@
+id;name;description;product_images;product_images_content_type;price;condition;active;register_date
+1;Steel;../fake-data/blob/ebank.txt;../fake-data/blob/ebank.png;image/png;31485;USED;true;2021-06-22T06:37:23
+2;cross-platform Principal;../fake-data/blob/ebank.txt;../fake-data/blob/ebank.png;image/png;35091;NEW;true;2021-06-22T07:51:02
+3;Handmade;../fake-data/blob/ebank.txt;../fake-data/blob/ebank.png;image/png;76808;USED;true;2021-06-22T19:08:08
+4;Track actuating deposit;../fake-data/blob/ebank.txt;../fake-data/blob/ebank.png;image/png;44573;NEW;false;2021-06-22T23:14:26
+5;Kina navigating;../fake-data/blob/ebank.txt;../fake-data/blob/ebank.png;image/png;57853;NEW;false;2021-06-22T16:44:21
+6;Korea transmitting New;../fake-data/blob/ebank.txt;../fake-data/blob/ebank.png;image/png;49167;NEW;false;2021-06-22T09:53:57
+7;Bedfordshire Lao neutral;../fake-data/blob/ebank.txt;../fake-data/blob/ebank.png;image/png;4184;NEW;false;2021-06-22T22:53:12
+8;Computer CFP orange;../fake-data/blob/ebank.txt;../fake-data/blob/ebank.png;image/png;9548;NEW;true;2021-06-22T05:05:34
+9;distributed indigo JSON;../fake-data/blob/ebank.txt;../fake-data/blob/ebank.png;image/png;55869;USED;true;2021-06-22T19:26:22
+10;Awesome;../fake-data/blob/ebank.txt;../fake-data/blob/ebank.png;image/png;52784;NEW;false;2021-06-22T08:32:12

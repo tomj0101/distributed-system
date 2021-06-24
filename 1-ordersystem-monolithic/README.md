@@ -185,6 +185,6 @@ sudo systemctl start postgresql  # start postgresql service
 [online HTML editor]: https://html-online.com/editor/
 
 ### This is how look when you run the monolithic
-![Monolithic-Screenshot-1](/docs/screenshot/Monolithic-Screenshot-1.png)
-![Monolithic-Screenshot-2](/docs/screenshot/Monolithic-Screenshot-2.png)
-![Monolithic-Screenshot-3](/docs/screenshot/Monolithic-Screenshot-3.png)
+![Monolithic-Screenshot-1](docs/screenshot/Monolithic-Screenshot-1.png)
+![Monolithic-Screenshot-2](docs/screenshot/Monolithic-Screenshot-2.png)
+![Monolithic-Screenshot-3](docs/screenshot/Monolithic-Screenshot-3.png)

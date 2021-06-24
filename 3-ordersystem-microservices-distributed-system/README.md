@@ -89,3 +89,6 @@ For you get more frontend knowledge, a good labs you can do is connect the UI wi
 ```
 For get the help of how install the database or tools used in this completed series, get the instruction from https://github.com/tomj0101/distributed-system/blob/main/0-dev-machine-setup/README.md
 ```
+
+### This is how look when you run the monolithic enterprise
+![Ditributed-system-microservices-Screenshot-1](docs/screenshot/Ditributed-system-microservices-Screenshot-1.png)

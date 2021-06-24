@@ -10,7 +10,7 @@
     "skipServer": false,
     "skipCheckLengthOfIdentifier": false,
     "skipFakeData": false,
-    "jhiPrefix": "jhi",
+    "jhiPrefix": "tbl",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "testFrameworks": ["cypress", "gatling"],
@@ -38,6 +38,10 @@
     "prodDatabaseType": "mongodb",
     "languages": ["en", "es"],
     "entities": ["OrderMaster"],
-    "lastLiquibaseTimestamp": 1624407874000
+    "lastLiquibaseTimestamp": 1624407874000,
+    "appFolder": "order-api",
+    "clusteredDb": true,
+    "targetImageName": "ebankDockerRepository/orderapi",
+    "dbPeerCount": 3
   }
 }

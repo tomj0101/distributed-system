@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: addressapi
+  namespace: ebankNamespace
+  labels:
+    app: addressapi
+spec:
+  selector:
+    app: addressapi
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8081

@@ -24,7 +24,7 @@ distributed-system ≠ high-performance computing(HPC): In some text books talk 
 
 - distributed-system: Containers oriented, CI-CD Pipeline, quickly scale, support intensive load. we will used software like Docker, Kubernetes, Jenkins, Git, ELK and programming languages like Java11+, Python, Nodejs14+, ReactJS17+.
 
-- HPC: Run big workloads for certains use case like Scienties, Usually running this on SuperComputer with special hardware with a lot CPU, RAM, GPU. we will use C, C++, OpenMP, OpenHPC, OpenMPI and Linux, also I will touch a topic the is not related to this. "High-Frecuency trading or HFT", this is not part of the HPC, HFT is more about speed and ulta-low latency, this topics will be with C++.
+- HPC: Run big workloads for certains use case like Scienties, Usually running this on SuperComputer with special hardware with a lot CPU, RAM, GPU. we will use C, C++, OpenMP, OpenHPC, OpenMPI and Linux, HPC is NOT a topic to work or explorer here in this repo.
 
 # Clarification #2 
 The goals of this repo is have a Professional development setup ready, is not 101 Java, not 101 Spring Boot, not 101 Microservices, not 101 Kubernetes, not 101 ReactJS, not 101 C++, if you never take a training in this technology, I highly recomend go get the fudamentals knowlaged, do small project like todo-list and then return to this repo.
@@ -35,6 +35,10 @@ The goals of this repo is have a Professional development setup ready, is not 10
 - Follow me on Twitter: https://twitter.com/tomj0101 Github: https://github.com/tomj0101
 
 
-
+### important
+```
+The Dev Machine setup README with all the installer is not something the I need to run everyday, that means if you read this article in 3 years or in 300 year, probably the version and dependency will not be the same, well probably the programming languages will not be the same too :)
+Link: https://github.com/tomj0101/distributed-system/tree/main/0-dev-machine-setup
+```
 
 

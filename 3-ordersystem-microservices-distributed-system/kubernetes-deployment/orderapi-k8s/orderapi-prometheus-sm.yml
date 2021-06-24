@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: orderapi-app
+  namespace: ebankNamespace
+  labels:
+    team: ebankNamespace
+spec:
+  selector:
+    matchLabels:
+      app: orderapi
+  endpoints:
+    - port: web
+      path: /prometheusMetrics

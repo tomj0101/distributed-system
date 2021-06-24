@@ -38,6 +38,10 @@
     "jwtSecretKey": "MTZjMjg3MjIyZDM4NzBjNjM2OGY4MzI3YTdiYWM5MzBhZDQyOTI0MTFmMGZkZmU3YzQyMWEzMTg4MzM1ODQ5MTQyMjFhNTJiMGNmZmYzY2FlNDM4ZGQ2MzgzZjIzNTAzOWI2MzBmYjYzZjU0MWRlYmRlMDZiZTVmYTQzNzU0MWY=",
     "languages": ["en", "es"],
     "entities": ["Product"],
-    "lastLiquibaseTimestamp": 1624407963000
+    "lastLiquibaseTimestamp": 1624407963000,
+    "appFolder": "product-api",
+    "clusteredDb": false,
+    "targetImageName": "ebankDockerRepository/productapi",
+    "dbPeerCount": 1
   }
 }

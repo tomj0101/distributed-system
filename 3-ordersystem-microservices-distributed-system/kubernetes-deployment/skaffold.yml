@@ -1,0 +1,24 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: ebankDockerRepository/addressapi
+      context: ../address-api
+      jib: {}
+    - image: ebankDockerRepository/orderapi
+      context: ../order-api
+      jib: {}
+    - image: ebankDockerRepository/ordersystemfrontend
+      context: ../ordersystem-frontend
+      jib: {}
+    - image: ebankDockerRepository/productapi
+      context: ../product-api
+      jib: {}
+    - image: ebankDockerRepository/statusapi
+      context: ../status-api
+      jib: {}
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:latest"
+deploy:
+  kustomize: {}

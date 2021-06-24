@@ -42,6 +42,10 @@
     "prodDatabaseType": "mongodb",
     "clientPackageManager": "npm",
     "languages": ["en", "es"],
-    "entities": ["OrderMaster", "Product"]
+    "entities": ["Address", "OrderMaster", "Product", "Status"],
+    "appFolder": "ordersystem-frontend",
+    "clusteredDb": false,
+    "targetImageName": "ebankDockerRepository/ordersystemfrontend",
+    "dbPeerCount": 1
   }
 }

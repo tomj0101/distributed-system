@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: statusapi-app
+  namespace: ebankNamespace
+  labels:
+    team: ebankNamespace
+spec:
+  selector:
+    matchLabels:
+      app: statusapi
+  endpoints:
+    - port: web
+      path: /prometheusMetrics

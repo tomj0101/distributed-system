@@ -1,0 +1,23 @@
+{
+  "generator-jhipster": {
+    "appsFolders": [
+      "address-api",
+      "order-api",
+      "ordersystem-frontend",
+      "product-api",
+      "status-api"
+    ],
+    "directoryPath": "../",
+    "clusteredDbApps": ["order-api"],
+    "serviceDiscoveryType": false,
+    "jwtSecretKey": "MTQ1MDQ2ZGJkOGRjNjE5Yzk3MDM4MDcyYThmZDYwNTE3NDExZDY5YjBiNjY2ZGIzYjRmOGY5ZDk4MWMwMzg2OTQyNDY3ODZlZGVkMDdkZjIyYTQ3ZjJjY2Q4MWYxOTkyNjViZQ==",
+    "dockerRepositoryName": "ebankDockerRepository",
+    "dockerPushCommand": "docker push",
+    "kubernetesNamespace": "ebankNamespace",
+    "kubernetesServiceType": "LoadBalancer",
+    "kubernetesUseDynamicStorage": false,
+    "ingressDomain": "",
+    "monitoring": "prometheus",
+    "istio": false
+  }
+}

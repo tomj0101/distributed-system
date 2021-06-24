@@ -1,6 +1,6 @@
 # status-api
 
-Develop a Enterprise REST API using nodejs, javascript, typescript, express.js and mongodb
+Develop a Enterprise REST API using nodejs, javascript, typescript, express.js and mongodb + implement OpenAPI Spec and SwaggerUI for dev test
 
 ## Install dependencies
 
@@ -70,3 +70,5 @@ npm test
 -repositories
 -controller
 
+[docker]: https://www.docker.com/
+[DockerCon LIVE]: DockerCon LIVE Designed for developers by developers, this year’s DockerCon is all about modern app delivery in a cloud-native world, with a special emphasis on speed. Catch up on the latest product announcements, interviews, panels, and 45+ sessions. Register and watch on-demand now.

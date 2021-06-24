@@ -386,6 +386,6 @@ docs: https://www.elastic.co/guide/en/elasticsearch/reference/6.8/jvm-options.ht
 [definitelytyped]: https://definitelytyped.org/
 [online HTML editor]: https://html-online.com/editor/
 
-### This is how look when you run the monolithic
+### This is how look when you run the monolithic enterprise
 ![Monolithic-Enterprise-Screenshot-1](docs/screenshot/Monolithic-Enterprise-Screenshot-1.png)
 ![Monolithic-Enterprise-Screenshot-2](docs/screenshot/Monolithic-Enterprise-Screenshot-2.png)

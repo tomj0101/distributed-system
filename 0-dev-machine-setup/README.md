@@ -1,14 +1,37 @@
 # Dev Machine setup (GNU/Linux Ubuntu 20.04) All-in-One
 The setup of this script is for run in debian version of Linux, GNU/Linux Ubuntu 20.04, if you are macOS User or Windows User you can found the equivalence software in .dmg or .exe with a wizard options.
 
-###  Included: User software, tools, script, library, Framework, Programming Language 
+Included: User software, tools, script, library, Framework, Programming Language 
+### Table of Contents
+
+Table of contents
+=================
+
+<!--ts-->
+   * [USER-POWER-USER-SOFTWARE](#USER-POWER-USER-SOFTWARE)
+      * [Web Browser](#USER-POWER-USER-SOFTWARE)
+      * [Video Conferences](#USER-POWER-USER-SOFTWARE)
+      * [Video Player](#USER-POWER-USER-SOFTWARE)
+   * [WEB-GRAPHIC-DESIGNER-VIDEO-EDITORS-AUDIO](#WEB-GRAPHIC-DESIGNER-VIDEO-EDITORS-AUDIO)
+   * [DEV-TOOLS](#DEV-TOOLS)
+   * [PROGRAMMING-LANGUAGES](#PROGRAMMING-LANGUAGES)
+   * [FULLSTACK-NodeJS-Backend-AND-ReactJS-Frontend-Web-Mobile](#FULLSTACK-NodeJS-Backend-AND-ReactJS-Frontend-Web-Mobile)
+   * [DATABASE-SYSTEMS](#DATABASE-SYSTEMS)
+   *    [SQL-NOSQL, CACHE, QUEUE, GRAPH](#DATABASE-SYSTEMS)
+   * [DEVOPS-AND-CLOUD-ADMIN-AND-LINUX-SYSADMIN](#DEVOPS-AND-CLOUD-ADMIN-AND-LINUX-SYSADMIN)
+
+<!--te-->
+
+
+
+
+USER-POWER-USER-SOFTWARE
+-----
+
 ```
 #check OS Update
 sudo apt update -y
 apt list --upgradable
-
-===========================================================
-=============== USER & POWER USER SOFTWARE ===============  
 
 #Chromium web browser
 sudo snap install chromium
@@ -78,8 +101,13 @@ notify-send "Weather" "`wethr`"
 # desktop environment LXDE / LXQt for old laptop or just get better performace removing GUI effects.
 sudo apt install lxqt -y
 
-==============================================================================
-=============== WEB & GRAPHIC DESIGNER + VIDEO EDITORS + AUDIO ==============
+
+```
+
+
+WEB-GRAPHIC-DESIGNER-VIDEO-EDITORS-AUDIO
+-----
+```
 #Images Manipulator(like photoshop), Vector Images(like Adobe Illustrator, Freehand, CoreDraw), 3D tool like 3D max or Maya
 sudo apt install gimp -y && sudo apt install inkscape -y && sudo apt install blender -y
 
@@ -95,9 +123,12 @@ sudo apt install audacity
 # Install video and AudiLib utils (command line different video format conversion)
 sudo apt install ffmpeg -y &&
 sudo apt install lame -y
+```
 
-==============================================================================
-=============== DEV TOOLS ===============  
+DEV-TOOLS
+-----
+
+```  
 #README, Live Markdown Editor for github documentation
 sudo apt install retext
 
@@ -179,9 +210,12 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 #pass in Github key setup
 https://github.com/settings/keys
 
-==============================================================================
-=============== PROGRAMMING LANGUAGES =============== 
+```
 
+PROGRAMMING-LANGUAGES
+----
+
+```
 =============== C & C++ =============== 
 # C/C++ Development
 sudo apt install build-essential -y
@@ -266,7 +300,12 @@ sudo apt install pypy3 -y # for Python 3
 #IDE pycharm-community
 sudo snap install pycharm-community --classic
 
-=============== FULLSTACK: NodeJS Backend & ReactJS Frontend, Web & Mobile =============== 
+```
+
+FULLSTACK-NodeJS-Backend-AND-ReactJS-Frontend-Web-Mobile
+-----
+
+```
 
 #IDE: Microsoft Visual Studio Code (Make sure install the extension for your languages)
 sudo snap install code --classic
@@ -430,9 +469,13 @@ sudo snap install erlang --classic
 #Haskell Lang
 sudo apt install haskell-platform -y
 # $ ghci
+```
 
-==============================================================================
-=============== DATABASE SYSTEMS (SQL, NOSQL, CACHE, QUEUE, GRAPH) =============== 
+DATABASE-SYSTEMS 
+-----
+SQL, NOSQL, CACHE, QUEUE, GRAPH
+
+```
 # Note: if your role is just dev, probably a Docker file to run your local database will be enough, but if your Role is DBA or System Admin this database, then yes this section is or you.
 
 # Database client and tools:
@@ -676,10 +719,13 @@ sudo systemctl disable neo4j
 Open: http://localhost:7474/
 docs: https://aster.cloud/2019/07/16/how-to-neo4j-installation-and-configuration-in-ubuntu/
 
+```
 
-==============================================================================
-=============== DEVOPS + CLOUD ADMIN + LINUX SYSADMIN =============== 
 
+DEVOPS-AND-CLOUD-ADMIN-AND-LINUX-SYSADMIN
+-----
+
+```
 # fix any broken packages after install node and npm: very important
 sudo apt --fix-broken install
 

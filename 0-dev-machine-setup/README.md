@@ -98,6 +98,10 @@ sudo apt install lame -y
 
 ==============================================================================
 =============== DEV TOOLS ===============  
+#README, Markdown GUI Editor for github documentation
+sudo snap install remarkable
+
+
 #postman
 sudo snap install postman
 #$ postman

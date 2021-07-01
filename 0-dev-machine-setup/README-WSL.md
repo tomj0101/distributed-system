@@ -8,6 +8,7 @@ Table of contents
 =================
 
 <!--ts-->
+   * [WINDOWS-GUI-SOFTWARE](#WINDOWS-GUI-SOFTWARE)
    * [USER-POWER-USER-SOFTWARE](#USER-POWER-USER-SOFTWARE)
       * [Web Browser](#USER-POWER-USER-SOFTWARE)
       * [Video Conferences](#USER-POWER-USER-SOFTWARE)
@@ -26,6 +27,16 @@ WINDOWS-GUI-SOFTWARE
 -----
 ### user-power-user-software
 ```
+SSH Client & SCP ssh copy client & FTP
+Putty: SSH Client
+https://www.putty.org/
+
+WinSCP: SCP Client
+https://winscp.net/eng/index.php
+
+Filezilla: FTP Client
+https://filezilla-project.org/download.php?type=client
+
 Google Chrome web browser:
 https://www.google.com/chrome/?brand=CHBD&brand=CHBD&geo=US&gclid=CjwKCAjwrPCGBhALEiwAUl9X03vDSCtTMG2Qqmrkzi8FVe67TjNeCoq2PBJPf6cSyyypMaEHEPKLjhoCuSgQAvD_BwE&gclsrc=aw.ds
 
@@ -621,6 +632,13 @@ reboot
 
 # Web GUI for the server 
 sudo apt install cockpit -y
+
+
+# Enabling SSH on Ubuntu (if you thinking to access remote to this computer)
+sudo apt update -y
+sudo apt install openssh-server -y
+sudo systemctl status ssh
+sudo ufw allow ssh
 ```
 
 

@@ -27,6 +27,9 @@ WINDOWS-GUI-SOFTWARE
 -----
 ### user-power-user-software
 ```
+Cool Terminal for Windows
+https://eugeny.github.io/terminus/
+
 SSH Client & SCP ssh copy client & FTP
 Putty: SSH Client
 https://www.putty.org/
@@ -72,6 +75,15 @@ https://shotcut.org/download/
 
 ### dev-tools
 ```
+# start and stop services on WSL
+sudo apt install nginx -y
+sudo nginx # start the services
+sudo nginx -s quit # stop the services
+
+wsl --terminate  #shutdown my services
+wsl -l # distribution isntalled
+
+
 README, Live Markdown Editor for github documentation
 https://typora.io/#windows
 
@@ -634,11 +646,20 @@ reboot
 sudo apt install cockpit -y
 
 
-# Enabling SSH on Ubuntu (if you thinking to access remote to this computer)
-sudo apt update -y
-sudo apt install openssh-server -y
-sudo systemctl status ssh
-sudo ufw allow ssh
+# Enabling SSH on WSL (Ubuntu)
+https://www.illuminiastudios.com/dev-diaries/ssh-on-windows-subsystem-for-linux/
+sudo apt remove openssh-server
+sudo apt install openssh-server
+
+sudo vim /etc/ssh/sshd_config
+PasswordAuthentication yes
+AllowUsers <yourusername>
+AllowUsers developer
+
+service ssh status
+sudo service ssh start
+sudo service ssh --full-restart
+
 ```
 
 

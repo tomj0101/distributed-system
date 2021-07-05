@@ -272,8 +272,9 @@ FULLSTACK-NodeJS-Backend-AND-ReactJS-Frontend-Web-Mobile
 
 ```
 # nodejs
-sudo apt install nodejs -y && \
-sudo apt install npm -y
+curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
+sudo yum install nodejs
+sudo npm install -g generator-jhipster
 
 # reload nodejs script, automatically restarting the node application when file changes in the directory are detected.
 sudo npm install -g nodemon

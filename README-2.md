@@ -1,8 +1,7 @@
 # Main Title
 Test test test test etest 
 
-
-![image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tutorialrepublic.com%2Fjavascript-tutorial%2F&psig=AOvVaw0OOzemmxVnIiq0t3sg7E6h&ust=1631119028924000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPiTgoWm7fICFQAAAAAdAAAAABAD)
+![image](https://user-images.githubusercontent.com/694554/132381032-81f2ee0b-a6c0-46b2-8def-da09df2d5592.png)
 
 ## Features
 
@@ -50,8 +49,3 @@ For production release:
 
 GNU General Public License
 
-
-[![NPM version][npm-image]][npm-url]
-
-
-# GUI Editor

@@ -3,6 +3,11 @@ Test test test test etest
 
 ![image](https://user-images.githubusercontent.com/694554/132381032-81f2ee0b-a6c0-46b2-8def-da09df2d5592.png)
 
+![Monolithic Logo](/docs/1-Monolithic.png)
+
+![Monolithic Logo](https://vegibit.com/wp-content/uploads/2014/04/Javascript-JS.png)
+
+
 ## Features
 
 this is the bullet

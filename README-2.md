@@ -52,8 +52,6 @@ GNU General Public License
 
 
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url-main]
-[![Dependency Status][daviddm-image]][daviddm-url]
 
 
 # GUI Editor

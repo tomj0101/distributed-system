@@ -13,6 +13,7 @@ this is the bullet
 
 
 > Special text 1
+
 > Special text 2
 
 ## Installation

@@ -366,8 +366,8 @@ sudo snap install kotlin --classic
 #LaTex in Linux Ubuntu 
 # (You can create from scientists papers to your resume, 
 # also when you need to create PDF output in RStudio you will need this compiler)
-sudo apt-get install texlive-full -y  #compiler
-sudo apt install texmaker -y #editor
+sudo apt-get install texlive-full -y  #LaTex compiler
+sudo apt install texmaker -y #LaTex editor
 
 # Install R-lang
 sudo apt install r-base -y

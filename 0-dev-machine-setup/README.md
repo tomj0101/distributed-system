@@ -68,6 +68,11 @@ sudo snap install slack --classic
 #libreoffice (is included)
 #sudo apt install libreoffice -y (lubuntu 18.10 come with libreoffice include)
 
+# PDF Editor and Digital Sign Tools:
+### LibreOffice Draw for add TextBox in PDF
+### xournal use for digital sign PDF with Mouse
+sudo apt install xournal
+
 #spotify
 sudo snap install spotify
 

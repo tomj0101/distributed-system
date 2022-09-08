@@ -26,6 +26,13 @@ USER-POWER-USER-SOFTWARE
 -----
 
 ```
+#Hide the computer name in Terminal
+step 1: vim ~/.bashrc
+step 2: fin below line:
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+step 3: replace for below line:
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
 #check OS Update
 sudo apt update -y
 apt list --upgradable
@@ -309,6 +316,38 @@ sudo snap install pycharm-community --classic
 
 ```
 
+MATH & Quant
+-----
+```
+=============== R for Maths and Statistical analysis =============== 
+#LaTex in Linux Ubuntu 
+# (You can create from scientists papers to your resume, 
+# also when you need to create PDF output in RStudio you will need this compiler)
+sudo apt-get install texlive-full -y  #LaTex compiler
+sudo apt install texmaker -y #LaTex editor
+
+# Install R-lang
+sudo apt install r-base -y
+# $ R
+
+# Install RStudio (check the last version before install, also install Latex before, also the RStudio version change a lot, make sure to install the last version)
+
+wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1093-amd64.deb
+sudo dpkg -i rstudio-1.3.1093-amd64.deb
+sudo apt --fix-broken install -y #the first try don' work
+sudo dpkg -i rstudio-1.3.1093-amd64.deb
+rm rstudio-1.3.1093-amd64.deb
+
+=============== C++ for Quant & Performace computation =============== 
+# linear algebra: Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms.
+# https://eigen.tuxfamily.org/index.php?title=Main_Page
+$ git clone https://gitlab.com/libeigen/eigen.git
+OR 
+sudo apt install libeigen3-dev
+header include: #include <eigen3/Eigen/Dense>
+```
+
+
 FULLSTACK-NodeJS-Backend-AND-ReactJS-Frontend-Web-Mobile
 -----
 
@@ -366,25 +405,6 @@ sudo apt install swift -y
 
 #Kotlin Lang
 sudo snap install kotlin --classic
-
-=============== R for Maths and Statistical analysis =============== 
-#LaTex in Linux Ubuntu 
-# (You can create from scientists papers to your resume, 
-# also when you need to create PDF output in RStudio you will need this compiler)
-sudo apt-get install texlive-full -y  #LaTex compiler
-sudo apt install texmaker -y #LaTex editor
-
-# Install R-lang
-sudo apt install r-base -y
-# $ R
-
-# Install RStudio (check the last version before install, also install Latex before, also the RStudio version change a lot, make sure to install the last version)
-
-wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1093-amd64.deb
-sudo dpkg -i rstudio-1.3.1093-amd64.deb
-sudo apt --fix-broken install -y #the first try don' work
-sudo dpkg -i rstudio-1.3.1093-amd64.deb
-rm rstudio-1.3.1093-amd64.deb
 
 =============== RUBY & RUBY ON RAILS  =============== 
 # Note: If you will work with Ruby on Rails in a greenfield project, check the last version for use the best features

@@ -1,4 +1,4 @@
-# Dev Machine setup (GNU/Linux Ubuntu 20.04) All-in-One
+# Dev Machine setup (GNU/Linux Ubuntu 22.04) All-in-One
 The setup of this script is for run in debian version of Linux, GNU/Linux Ubuntu 20.04, if you are macOS User or Windows User you can found the equivalence software in .dmg or .exe with a wizard options.
 
 Included: User software, tools, script, library, Framework, Programming Language 

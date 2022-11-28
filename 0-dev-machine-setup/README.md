@@ -409,50 +409,20 @@ sudo snap install kotlin --classic
 =============== RUBY & RUBY ON RAILS  =============== 
 # Note: If you will work with Ruby on Rails in a greenfield project, check the last version for use the best features
 
-# Ruby with snap
-# sudo snap install ruby --classic
+# (step 1) Install Ruby
+$ sudo snap install ruby --classic
+$ ruby --version
+ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x86_64-linux-gnu]
+$ gem --version
+3.3.5
 
-#RubyOnRails (Manual) 
+# Install SQLite for DB
+sudo apt install sqlite3 -y
+
+# (step 2) Install Rails
 #############
-https://gorails.com/setup/ubuntu/20.10
-Ruby 2.7.2
-Rails 6.0.3.4
-
-#Pre-package before install Ruby
-:'
-sudo apt install curl
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update
-sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn
-'
-
-#Installing Ruby
-:'
-cd
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-exec $SHELL
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-exec $SHELL
-rbenv install 2.7.2
-rbenv global 2.7.2
-ruby -v
-'
-
-#install the bundler
-:'
-gem install bundler
-'
-
-#installing rails
-:'
-gem install rails -v 6.0.3.4
-rbenv rehash
-rails -v
-'
+https://guides.rubyonrails.org/getting_started.html
+sudo gem install Rails
 
 #setting database for Rails mysql and postgres
 :'

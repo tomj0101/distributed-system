@@ -423,6 +423,8 @@ sudo apt install sqlite3 -y
 #############
 https://guides.rubyonrails.org/getting_started.html
 sudo gem install Rails
+$ rails --version
+Rails 7.0.4
 
 #setting database for Rails mysql and postgres
 :'

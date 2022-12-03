@@ -422,9 +422,20 @@ sudo apt install sqlite3 -y
 # (step 2) Install Rails
 #############
 https://guides.rubyonrails.org/getting_started.html
-sudo gem install Rails
+sudo gem install rails
 $ rails --version
 Rails 7.0.4
+
+### Rails Error
+Error:
+Building native extensions. This could take a while...
+ERROR:  Error installing rails:
+        ERROR: Failed to build gem native extension.
+ 
+Solution:
+sudo apt install -y build-essential
+sudo apt-get install ruby-dev zlib1g-dev liblzma-dev
+sudo gem install rails
 
 #setting database for Rails mysql and postgres
 :'

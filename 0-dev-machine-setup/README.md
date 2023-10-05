@@ -233,6 +233,7 @@ PROGRAMMING-LANGUAGES
 =============== C & C++ =============== 
 # C/C++ Development
 sudo apt install build-essential -y
+
 # (1 hour 30 min for compiled the library)
 # (1 hour 30 min for compiled the program)
 sudo snap install cmake --classic
@@ -264,6 +265,13 @@ Install some library fix error working with QT
 Error:
 Invalid use of incomplete type ‘class QDebug’
 '
+
+#### Static code analysis
+sudo apt install cppcheck -y
+
+
+#### Memory Check
+sudo apt install valgrind -y
 
 =============== JAVA =============== 
 #Java 11 (default is 11 on 2021.01.01)

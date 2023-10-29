@@ -445,6 +445,12 @@ sudo apt install -y build-essential
 sudo apt-get install ruby-dev zlib1g-dev liblzma-dev
 sudo gem install rails
 
+Error:
+An error occurred while installing psych (5.1.1.1), and Bundler cannot continue.
+
+Solution:
+sudo apt-get install libyaml-dev
+
 #setting database for Rails mysql and postgres
 :'
 sudo apt-get install mysql-server mysql-client libmysqlclient-dev
